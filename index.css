@@ -18,6 +18,12 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Global Artistic Choice */
+h1, h2, h3, #navigation a, .btn_one, #logo {
+    text-transform: lowercase !important;
+    letter-spacing: 0.05em; 
+}
+
 /* Your Name / Logo */
 #logo {
     font-family: 'Ballet', cursive !important;
@@ -67,22 +73,23 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    background: transparent; /* Starts transparent */
+    background: transparent;
     color: var(--soft-blue);
     transition: 0.4s ease-in-out;
-    z-index: 10;
+    z-index: 1000; /* Increased to stay above everything */
 }
 
-/* this is the class the script adds when you scroll */
 .nav-show {
-    background: rgba(10, 25, 47, 0.7) !important; /* semi-transparent navy */
-    backdrop-filter: blur(12px); /* frosted glass"
-    -webkit-backdrop-filter: blur(12px); /* support for safari */
-    border-bottom: 1px solid rgba(165, 180, 252, 0.1); /* very subtle divider */
+    background: rgba(10, 25, 47, 0.8) !important; 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(165, 180, 252, 0.1);
 }
+
 #navigation {
     width:80%;
     text-align:right;
+    white-space: nowrap; /* Keeps items in one line */
 }
 
 #navigation a {
@@ -90,93 +97,99 @@ header {
     text-decoration:none;
     padding:5px 10px;
     border-bottom:1px solid transparent;
-    margin-left:4vw;
-    transition:0.4s ease-in-out;
+    margin-left:3vw; /* Adjusted for better spacing */
+    transition: 0.4s ease-in-out;
     font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
-#navigation a:hover{
-    border-bottom:1px solid var(--accent-blue);
-    color: var(--accent-blue);
+/* --- THE STAIRCASE DROPDOWN --- */
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: transparent;
+    min-width: 200px;
+    z-index: 1001;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    display: block !important;
+    color: var(--soft-blue) !important;
+    padding: 8px 0px !important;
+    font-size: 13px !important;
+    transition: 0.3s ease;
+    border: none !important; /* Removes the hover border for steps */
+    margin-left: 0 !important;
+}
+
+/* Increasing Indents for the Staircase */
+.dropdown-content a:nth-child(1) { padding-left: 20px !important; } /* research */
+.dropdown-content a:nth-child(2) { padding-left: 40px !important; } /* arch */
+.dropdown-content a:nth-child(3) { padding-left: 60px !important; } /* music */
+
+.dropdown-content a:hover {
+    color: var(--accent-blue) !important;
+    padding-left: 75px !important; /* Tiny "push" on hover */
+    border: none !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --- HERO SECTION LAYOUT (FIXING OVERLAP) --- */
 
 #top_part {
     width: 100%;
-    border: none !important; /* removes the white/navy border that creates a gap */
+    border: none !important;
     margin-top: 0;
 }
+
 #about {
-    width: 80% !important; /* narrowed slightly to pull text away from the GIF */
+    width: 50% !important; /* Strict half-width */
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: left;
-    padding: 0px 10%; /* increased horizontal padding */
-    gap: 20px;       /* adds consistent space between your name, bio, and buttons */
+    padding: 0px 5% 0px 8% !important; /* Space for text on left */
+    gap: 20px;
+    box-sizing: border-box;
 }
 
 #about h1 {
-    font-size: 60px;
-    line-height: 1.1;
-}
-
-.social {
-    color: var(--accent-blue);
-    font-size:23px;
-    padding:12px 17px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.05);
-    transition:0.4s ease-in-out;
-    margin:0px 8px;
-}
-
-.social:hover { 
-    cursor: pointer;
-    color: var(--deep-navy);
-    background: var(--accent-blue);
-    box-shadow:0px 10px 30px rgba(165, 180, 252, 0.3);
-}
-
-.btn_one {
-    font-size:16px;
-    font-family: 'Roboto Serif', serif;
-    color: var(--accent-blue);
-    background: transparent;
-    border: 1px solid var(--accent-blue);
-    padding:12px 40px;
-    width:fit-content;
-    border-radius:80px;
-    margin:2vh 0px;
-    transition:0.4s ease-in-out;
-    cursor: pointer;
-}
-
-.btn_one:hover {
-    box-shadow:0px 10px 30px rgba(165, 180, 252, 0.2);
-    color: var(--deep-navy);
-    background: var(--accent-blue);
+    font-size: 48px; /* Adjusted to fit better in 50% width */
+    line-height: 1.2;
 }
 
 #rightImage {
-    width: 100%;
-    height: 95vh;
-    /* adds a 70% navy tint to ensure your pastel text is readable over the motion */
+    width: 50% !important; /* Strict half-width */
+    height: 100vh;
     background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
                 url("https://i.pinimg.com/originals/9f/f0/87/9ff08791d0706c082cb763132dd3a10c.gif") center center;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Optional: This creates a cool parallax effect as you scroll */
+    background-attachment: fixed;
 }
 
-#work, #bio, #contact {
+/* --- OTHER SECTIONS --- */
+
+#work, #bio, #contact, #research, #arch, #music, #thoughts, #extras {
     width:92vw;
     padding:10vh 4vw;
 }
 
-#work h1, #bio h1, #contact h1 {
+#work h1, #bio h1, #contact h1, #research h1, #arch h1, #music h1 {
     padding:5px 0px;
     border-bottom:1px solid var(--accent-blue) !important;
     width: fit-content;
@@ -200,29 +213,6 @@ header {
 #photos img:hover {
     transform: scale(1.02);
     filter: grayscale(0%) brightness(1);
-    cursor: pointer;
-}
-
-#contact form input, #contact form textarea {
-    width:96%;
-    margin:20px 1%;
-    background:transparent;
-    border:0px;
-    border-bottom:1px solid var(--muted-blue);
-    padding:12px 10px;
-    font-family: 'Roboto Serif', serif;
-    font-size:16px;
-    transition:0.4s ease-in-out;
-    color: var(--soft-blue);
-}
-
-#contact form input:focus, #contact form textarea:focus {
-    outline:none;
-    border-bottom:1px solid var(--accent-blue);
-}
-
-::placeholder {
-    color: var(--muted-blue);
 }
 
 #footer {
@@ -238,36 +228,15 @@ header {
     text-decoration:none;
 }
 
-/* Scrollbar Aesthetic */
-::-webkit-scrollbar {
-    width:8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--deep-navy); 
-}
-::-webkit-scrollbar-thumb {
-    background: var(--muted-blue); 
-    border-radius: 10px;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width:8px; }
+::-webkit-scrollbar-track { background: var(--deep-navy); }
+::-webkit-scrollbar-thumb { background: var(--muted-blue); border-radius: 10px; }
 
 @media (max-width: 1000px){
-    #about h1 { font-size: 40px; }
+    #about { width: 100% !important; }
+    #about h1 { font-size: 36px; }
+    #rightImage { display: none; } /* Hide GIF on mobile for readability */
     #photos { columns: 1; }
     header { background: var(--deep-navy); }
-}
-
-/* hover logic */
-#navigation a:hover {
-    border-bottom: 2px solid var(--accent-blue) !important;
-    transition: 0.3s ease;
-}
-
-/* ensure  logo stays the right color throughout */
-#logo {
-    color: var(--accent-blue) !important;
-}
-
-h1, h2, h3, #navigation a, .btn_one, #logo {
-    text-transform: lowercase !important;
-    letter-spacing: 0.05em; /* lowercase often looks better with a tiny bit of extra space */
 }
