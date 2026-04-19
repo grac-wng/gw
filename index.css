@@ -251,3 +251,14 @@ header {
     #photos { columns: 1; }
     header { background: var(--deep-navy); }
 }
+
+/* hover logic */
+#navigation a:hover {
+    border-bottom: 2px solid var(--accent-blue) !important;
+    transition: 0.3s ease;
+}
+
+/* ensure  logo stays the right color throughout */
+#logo {
+    color: var(--accent-blue) !important;
+}
