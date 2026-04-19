@@ -63,17 +63,23 @@ h1, h2, h3 {
 
 header {
     width: 92vw;
-    padding: 2vh 4vw; /* reduced padding from 6vh to 2vh to slim it down */
+    padding: 2vh 4vw;
     position: fixed;
-    top: 0;           /* force it to the very top */
+    top: 0;
     left: 0;
-    background: transparent;
-    backdrop-filter: blur(10px);
+    background: transparent; /* Starts transparent */
     color: var(--soft-blue);
     transition: 0.4s ease-in-out;
-    z-index: 10;      /* increase to ensure it stays above everything */
+    z-index: 10;
 }
 
+/* this is the class the script adds when you scroll */
+.nav-show {
+    background: rgba(10, 25, 47, 0.7) !important; /* semi-transparent navy */
+    backdrop-filter: blur(12px); /* frosted glass"
+    -webkit-backdrop-filter: blur(12px); /* support for safari */
+    border-bottom: 1px solid rgba(165, 180, 252, 0.1); /* very subtle divider */
+}
 #navigation {
     width:80%;
     text-align:right;
