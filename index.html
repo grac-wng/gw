@@ -19,17 +19,20 @@
         <div id="img_here"></div>
     </div>
     <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
-        <table>
-            <tr>
-                <td id="logo">grace wang.</td>
-                <td id="navigation">
-                    <a href="#projects">work</a>
-                    <a href="#bio">about</a>
-                    <a href="work">messing around</a>
-                </td>
-            </tr>
-        </table>
+
     </header>
+    <td id="logo">grace wang.</td>
+    <td id="navigation">
+    <a href="#bio">about</a> <div class="dropdown">
+        <a href="#projects" class="dropbtn">projects</a>
+        <div class="dropdown-content">
+            <a href="#research">research</a>
+            <a href="#arch">arch</a>
+            <a href="#music">music</a>
+        </div>
+    </div>
+    <a href="#thoughts">thinking on</a>
+    <a href="#extras">messing around</a>
     <table id="top_part">
         <tr>
             <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
@@ -47,8 +50,22 @@
             <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
         </tr>
     </table>
-    <div id="work">
-        <h1>work</h1>
+    <div id="projects">
+        <h1>projects</h1>
+        <div id="research">
+          <h1>research</h1>
+          <p>Genomics and bioinformatics research details go here...</p>
+        </div>
+
+      <div id="arch">
+          <h1>arch</h1>
+          <p>Architecture and design projects go here...</p>
+      </div>
+
+      <div id="music">
+          <h1>music</h1>
+          <p>Music and audio work goes here...</p>
+      </div>
         <div id="photos">
             <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547922657-b370d1687eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80">
             <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549375463-8cbc18ca3f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80">

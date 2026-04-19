@@ -107,15 +107,15 @@ header {
     border: none !important; /* removes the white/navy border that creates a gap */
     margin-top: 0;
 }
-
 #about {
-    width:84% !important;
-    height:95vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    text-align:left;
-    padding:0px 8%;
+    width: 80% !important; /* narrowed slightly to pull text away from the GIF */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 0px 10%; /* increased horizontal padding */
+    gap: 20px;       /* adds consistent space between your name, bio, and buttons */
 }
 
 #about h1 {
@@ -265,4 +265,9 @@ header {
 /* ensure  logo stays the right color throughout */
 #logo {
     color: var(--accent-blue) !important;
+}
+
+h1, h2, h3, #navigation a, .btn_one, #logo {
+    text-transform: lowercase !important;
+    letter-spacing: 0.05em; /* lowercase often looks better with a tiny bit of extra space */
 }
