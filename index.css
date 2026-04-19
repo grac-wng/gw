@@ -176,7 +176,7 @@ header {
     width: 50% !important; /* Strict half-width */
     height: 100vh;
     background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
-                url("https://i.pinimg.com/originals/9f/f0/87/9ff08791d0706c082cb763132dd3a10c.gif") center center;
+                url("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/mri_brain_scan2/12915441-1-eng-GB/MRI_brain_scan.gif") center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -236,7 +236,7 @@ header {
 @media (max-width: 1000px){
     #about { width: 100% !important; }
     #about h1 { font-size: 36px; }
-    #rightImage { display: none; } /* Hide GIF on mobile for readability */
+    #rightImage { display: none; } /* hide GIF on mobile for readability */
     #photos { columns: 1; }
     header { background: var(--deep-navy); }
 }
