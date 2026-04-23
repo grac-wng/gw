@@ -14,7 +14,7 @@ body {
     text-transform: lowercase;
 }
 
-/* --- Navigation --- */
+/* --- Navigation & Staircase --- */
 header {
     width: 92vw;
     padding: 2vh 4vw;
@@ -33,19 +33,14 @@ header #logo {
     text-decoration: none !important;
 }
 
-.nav-link, .dropbtn {
-    color: var(--soft-blue) !important;
-    text-decoration: none !important;
-    font-size: 14px !important;
-}
-
+.nav-link, .dropbtn { color: var(--soft-blue) !important; text-decoration: none !important; font-size: 14px !important; }
 .dropdown { display: inline-block; position: relative; margin-left: 2.5vw; }
 .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: var(--deep-navy); min-width: 180px; padding: 10px 0; }
 .dropdown-content a { color: var(--soft-blue) !important; text-decoration: none !important; display: block !important; padding: 8px 0 !important; font-size: 14px !important; transition: 0.3s; }
 .dropdown-content a:hover { color: var(--accent-blue) !important; }
 .dropdown:hover .dropdown-content { display: block; }
 
-/* Staircase Effect Restored */
+/* Fixed Staircase Logic */
 .nav-item-1 { padding-left: 10px !important; }
 .nav-item-2 { padding-left: 25px !important; }
 .nav-item-3 { padding-left: 40px !important; }
@@ -67,8 +62,6 @@ header #logo {
 .lab-name { font-weight: 600; color: var(--soft-blue); font-size: 15px; }
 .advisor-line { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 12px; margin-bottom: 12px; color: rgba(209, 217, 230, 0.6); }
 .advisor-line a { color: var(--accent-blue); text-decoration: none; }
-.advisor-line a:hover { text-decoration: underline; }
-
 .mini-button { font-size: 10px; text-decoration: none; color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 2px; }
 .methods-grid { display: flex; gap: 30px; margin-top: 15px; }
 .method-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
@@ -79,12 +72,31 @@ header #logo {
 .simple-list { list-style: none; padding-left: 0; margin-top: 10px; }
 .simple-list li::before { content: "—"; margin-right: 10px; color: var(--accent-blue); }
 
-/* --- Music & Poem Modal --- */
-.audio-label { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 12px; margin-bottom: 10px; color: var(--accent-blue); }
-.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.95); backdrop-filter: blur(8px); }
-.modal-content { position: relative; background-color: var(--deep-navy); margin: 8% auto; padding: 40px; border: 1px solid rgba(165, 180, 252, 0.2); width: 80%; max-width: 450px; text-align: center; }
-#modal-image-wrapper img { max-width: 100%; height: auto; }
-.close-button { position: absolute; top: 15px; right: 20px; color: var(--soft-blue); font-size: 28px; cursor: pointer; }
+/* --- Architecture Embed --- */
+.canva-embed-container { position: relative; width: 100%; height: 80vh; margin-top: 20px; }
+.canva-embed-container iframe { position: absolute; width: 100%; height: 100%; border: none; }
+
+/* --- Writing / Lucky Button --- */
+#lucky-button {
+    background: transparent;
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 10px 20px;
+    font-family: 'Roboto Serif', serif;
+    font-size: 13px;
+    cursor: pointer;
+    text-transform: lowercase;
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+#lucky-button:hover {
+    background: rgba(165, 180, 252, 0.1);
+}
+
+.spinning { animation: spin 1s infinite linear; }
+@keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
 /* --- General Structure --- */
 .ballet-header { font-family: 'Ballet', cursive !important; font-size: 50px; color: var(--accent-blue); font-weight: normal; }
@@ -98,3 +110,6 @@ header #logo {
 #loading { width: 100vw; height: 100vh; position: fixed; background: var(--deep-navy); z-index: 9999; display: flex; justify-content: center; align-items: center; }
 #spinner { width: 40px; height: 40px; border: 3px solid var(--accent-blue); border-bottom: 3px solid transparent; border-radius: 50%; animation: rotate 0.8s infinite linear; }
 @keyframes rotate { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
+
+/* Acronym Override */
+p { text-transform: none; } /* Set default to none, let body handle lowercase */

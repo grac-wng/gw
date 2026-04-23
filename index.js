@@ -13,7 +13,7 @@ $(document).ready(function() {
 });
 
 function luckySnippet() {
-    const icon = document.querySelector('.fa-sync-alt');
+    const icon = document.getElementById('lucky-icon');
     const modal = document.getElementById('poem-modal');
     const img = document.getElementById('poem-image');
     
