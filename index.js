@@ -1,16 +1,16 @@
 $(document).ready(function() {
-    // Reveal site almost immediately
+    // Hide the loader quickly
     setTimeout(function() {
         $("#loading").addClass("animated fadeOut");
         setTimeout(function() {
             $("#loading").css("display", "none");
-            // Trigger bio animation
+            // Entrance animation for the main content
             $("#hero-content").addClass("animated fadeInUp");
         }, 600);
     }, 150); 
 });
 
-// Navigation background shift
+// Navigation background transition
 $(window).on("scroll", function() {
     if ($(window).scrollTop() > 50) {
         $("#header").addClass("nav-show");
@@ -19,7 +19,7 @@ $(window).on("scroll", function() {
     }
 });
 
-// Smooth scroll to anchors
+// Smooth scroll to sections with a slight offset for the header
 $('a[href*="#"]').on('click', function(e) {
     var target = $(this.hash);
     if (target.length) {
