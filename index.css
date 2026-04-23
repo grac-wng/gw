@@ -76,7 +76,7 @@ header {
     background: transparent;
     color: var(--soft-blue);
     transition: 0.4s ease-in-out;
-    z-index: 1000; /* Increased to stay above everything */
+    z-index: 1000; /* increased to stay above everything */
 }
 
 .nav-show {
@@ -86,24 +86,27 @@ header {
     border-bottom: 1px solid rgba(165, 180, 252, 0.1);
 }
 
+/* navigation, dropdowns */
+
 #navigation {
-    width:80%;
-    text-align:right;
-    white-space: nowrap; /* Keeps items in one line */
+    text-align: right;
+    white-space: nowrap;
 }
 
 #navigation a {
     color: var(--soft-blue);
-    text-decoration:none;
-    padding:5px 10px;
-    border-bottom:1px solid transparent;
-    margin-left:3vw; /* Adjusted for better spacing */
+    text-decoration: none;
+    margin-left: 3vw;
     transition: 0.4s ease-in-out;
-    font-size: 14px;
+    font-size: 14px; /* Text-transform lowercase is still global */
+    letter-spacing: 1px;
 }
 
-/* --- THE STAIRCASE DROPDOWN --- */
+#navigation a:hover {
+    color: var(--accent-blue);
+}
 
+/* staircase dropdown */
 .dropdown {
     display: inline-block;
     position: relative;
@@ -117,7 +120,7 @@ header {
     left: 0;
     background: transparent;
     min-width: 200px;
-    z-index: 1001;
+    z-index: 1000;
     padding-top: 10px;
     text-align: left;
 }
@@ -128,61 +131,71 @@ header {
     padding: 8px 0px !important;
     font-size: 13px !important;
     transition: 0.3s ease;
-    border: none !important; /* Removes the hover border for steps */
-    margin-left: 0 !important;
+    border: none !important;
 }
 
-/* Increasing Indents for the Staircase */
-.dropdown-content a:nth-child(1) { padding-left: 20px !important; } /* research */
-.dropdown-content a:nth-child(2) { padding-left: 40px !important; } /* arch */
-.dropdown-content a:nth-child(3) { padding-left: 60px !important; } /* music */
+/* staircase effect */
+.dropdown-content a:nth-child(1) { padding-left: 20px !important; }
+.dropdown-content a:nth-child(2) { padding-left: 40px !important; }
+.dropdown-content a:nth-child(3) { padding-left: 60px !important; }
+.dropdown-content a:nth-child(4) { padding-left: 80px !important; } /* Case for 4 items */
 
 .dropdown-content a:hover {
     color: var(--accent-blue) !important;
-    padding-left: 75px !important; /* Tiny "push" on hover */
-    border: none !important;
+    padding-left: 90px !important; /* Dynamic push */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* --- HERO SECTION LAYOUT (FIXING OVERLAP) --- */
+/* --- split-screen --- */
 
 #top_part {
     width: 100%;
     border: none !important;
-    margin-top: 0;
 }
 
+/* shrink text side to 30% */
 #about {
-    width: 50% !important; /* Strict half-width */
+    width: 30% !important;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: left;
-    padding: 0px 5% 0px 8% !important; /* Space for text on left */
-    gap: 20px;
+    padding: 0 4% 0 8% !important; /* adjusted horizontal padding */
     box-sizing: border-box;
 }
 
+/* smaller heading */
 #about h1 {
-    font-size: 48px; /* Adjusted to fit better in 50% width */
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--soft-blue);
+    margin-bottom: 3vh;
 }
 
+/* style for headshot */
+.headshot {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    filter: grayscale(100%); /* keeps it matching the MRI */
+    margin-bottom: 4vh;
+}
+
+/* expand gif side to 70% */
 #rightImage {
-    width: 50% !important; /* Strict half-width */
+    width: 70% !important;
     height: 100vh;
-    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), 
-                url("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/mri_brain_scan2/12915441-1-eng-GB/MRI_brain_scan.gif") center center;
-    background-size: cover;
+    background: url("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/mri_brain_scan2/12915441-1-eng-GB/MRI_brain_scan.gif") center center;
+    background-size: contain; /* critically: this makes the full horizontal image fit */
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #000; /* fills extra space with pure black to match the gif's background */
 }
 
-/* --- OTHER SECTIONS --- */
+/* --- other sections --- */
 
 #work, #bio, #contact, #research, #arch, #music, #thoughts, #extras {
     width:92vw;

@@ -2,7 +2,7 @@ var width = $(window).width();
 window.onscroll = function(){
     if (width >= 1000) {
         if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-            // just adds the "frosted" class we made in CSS
+            // just adds the "frosted" glass we made in CSS
             $("#header").addClass("nav-show");
         } else {
             // removes it when you're at the very top
