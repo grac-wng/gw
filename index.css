@@ -13,12 +13,19 @@ body {
     margin: 0;
 }
 
-/* Base lowercase for aesthetic */
+/* --- Global Text Uniformity --- */
 p, span, li, h1, h2, h3, h4, a, .dropbtn { text-transform: lowercase; }
 
-/* Proper casing for acronyms and specific labels */
-.description, .project-block p, .advisor-line, .method-col p, .research-card p, #hero-text-container p {
+/* Uniform description/list sizing (13px) */
+.description, 
+.project-block p, 
+.method-col p, 
+.research-card p, 
+.simple-list li,
+#hero-text-container p {
     text-transform: none !important;
+    font-size: 13px !important;
+    line-height: 1.6;
 }
 
 /* --- Navigation & Floating Dropdown --- */
@@ -51,7 +58,6 @@ header #logo {
     background: transparent; 
     min-width: 180px; 
     padding: 10px 0; 
-    border: none;
 }
 
 .dropdown:hover .dropdown-content { display: block; }
@@ -91,7 +97,7 @@ header #logo {
 }
 .social-btn:hover { background: rgba(165, 180, 252, 0.1); border-color: var(--accent-blue); }
 
-/* --- Content Cards --- */
+/* --- Research & Clinical --- */
 .research-card { padding: 25px; margin-bottom: 15px; border: 1px solid transparent; transition: 0.4s; }
 .research-card:hover { background-color: rgba(209, 217, 230, 0.03); border: 1px solid rgba(165, 180, 252, 0.1); }
 
@@ -103,17 +109,15 @@ header #logo {
 .advisor-line a { color: var(--accent-blue) !important; text-decoration: none !important; }
 .advisor-line a:hover { text-decoration: underline !important; }
 
-/* Clinical Flex */
 .clinical-flex { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
 .card-text { flex: 1; }
 .card-visual { flex: 0 0 250px; }
 .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
 
-/* Lists & Links */
 .project-block { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(209, 217, 230, 0.08); }
 .project-role { font-style: italic; color: var(--soft-blue); display: block; margin-bottom: 8px; }
 .simple-list { list-style: none; padding-left: 0; margin-top: 10px; }
-.simple-list li { font-size: 13px; margin-bottom: 6px; position: relative; padding-left: 15px; }
+.simple-list li { position: relative; padding-left: 15px; }
 .simple-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-blue); }
 
 .link-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
@@ -122,6 +126,15 @@ header #logo {
 
 .methods-grid { display: flex; gap: 30px; margin-top: 15px; }
 .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
+
+/* --- Music Section --- */
+.audio-label {
+    font-family: 'Old Standard TT', serif !important;
+    font-style: italic !important;
+    font-size: 14px !important;
+    color: var(--accent-blue);
+    margin-bottom: 10px;
+}
 
 /* --- Architecture Embed --- */
 .canva-embed-container {
@@ -148,6 +161,24 @@ header #logo {
 .collapsible.active::before { content: '—'; }
 .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
 
-#lucky-button { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 4px; }
+#lucky-button { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+#lucky-button:hover { background: rgba(165, 180, 252, 0.1); }
+
+/* --- Modal (Reduced Size) --- */
 .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.95); backdrop-filter: blur(8px); }
-.modal-content { position: relative; background-color: var(--deep-navy); margin: 5% auto; padding: 40px; border: 1px solid rgba(165, 180, 252, 0.2); width: 90%; max-width: 500px; text-align: center;
+.modal-content { 
+    position: relative; 
+    background-color: var(--deep-navy); 
+    margin: 10% auto; 
+    padding: 30px; 
+    border: 1px solid rgba(165, 180, 252, 0.2); 
+    width: 80%; 
+    max-width: 380px; /* Smaller footprint */
+    text-align: center; 
+}
+#poem-image { max-width: 100%; border-radius: 2px; }
+.close-button { position: absolute; top: 10px; right: 15px; color: var(--soft-blue); font-size: 24px; cursor: pointer; }
+
+#loading { width: 100vw; height: 100vh; position: fixed; background: var(--deep-navy); z-index: 9999; display: flex; justify-content: center; align-items: center; }
+#spinner { width: 40px; height: 40px; border: 3px solid var(--accent-blue); border-bottom: 3px solid transparent; border-radius: 50%; animation: rotate 0.8s infinite linear; }
+@keyframes rotate { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
