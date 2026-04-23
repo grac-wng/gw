@@ -1,10 +1,10 @@
 $(document).ready(function() {
-    // Loader
+    // Reveal site once loaded
     setTimeout(function() {
         $("#loading").fadeOut(600);
     }, 150);
 
-    // Collapsible Subsections
+    // Collapsible Logic
     $(".collapsible").on("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
@@ -21,21 +21,23 @@ function luckySnippet() {
     const viewer = document.getElementById('poem-viewer-container');
     const iframe = document.getElementById('poem-iframe');
     
-    // Start spin
+    // Clear previous source to force a refresh and start spin
+    iframe.src = "";
     icon.classList.add('spinning');
     
     setTimeout(() => {
         const randomNum = Math.floor(Math.random() * 20) + 1;
-        // The path must match your folder: docs/snippet (X).pdf
         const pdfPath = `docs/snippet (${randomNum}).pdf`;
         
         icon.classList.remove('spinning');
         viewer.style.display = 'block';
         iframe.src = pdfPath;
         
-        // Open parent container height so the iframe isn't cut off
+        // Adjust the container height so it doesn't clip
         const parentContent = viewer.closest('.content');
-        parentContent.style.maxHeight = parentContent.scrollHeight + 600 + "px";
+        if (parentContent) {
+            parentContent.style.maxHeight = (parentContent.scrollHeight + 650) + "px";
+        }
     }, 800);
 }
 

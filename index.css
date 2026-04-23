@@ -14,7 +14,7 @@ body {
     text-transform: lowercase;
 }
 
-/* --- Navigation: NO Underlines, NO Blue --- */
+/* --- NAVIGATION RECOVERY --- */
 header {
     width: 92vw;
     padding: 2vh 4vw;
@@ -26,27 +26,58 @@ header {
     z-index: 1000;
 }
 
-.nav-link, .dropbtn {
+header #logo {
+    font-family: 'Ballet', cursive !important;
+    font-size: 42px !important;
+    color: var(--accent-blue) !important;
+    text-decoration: none !important;
+}
+
+#navigation .dropdown {
+    display: inline-block;
+    position: relative;
+    margin-left: 2.5vw;
+}
+
+#navigation .dropbtn {
     color: var(--soft-blue) !important;
     text-decoration: none !important;
-    font-size: 14px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
+    font-size: 14px !important;
+    font-family: 'Roboto Serif', serif !important;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--deep-navy);
+    min-width: 180px;
 }
 
 .dropdown-content a {
     color: var(--soft-blue) !important;
     text-decoration: none !important;
+    font-size: 14px !important;
     display: block !important;
     padding: 8px 0px !important;
+    transition: 0.4s ease;
 }
 
-.dropdown { display: inline-block; position: relative; margin-left: 2.5vw; }
+/* Staircase Logic */
+.dropdown-content a:nth-child(1) { padding-left: 10px !important; }
+.dropdown-content a:nth-child(2) { padding-left: 25px !important; }
+.dropdown-content a:nth-child(3) { padding-left: 40px !important; }
+.dropdown-content a:nth-child(4) { padding-left: 55px !important; }
+
+.dropdown-content a:hover {
+    padding-left: 70px !important;
+    color: var(--accent-blue) !important;
+}
+
 .dropdown:hover .dropdown-content { display: block; }
 
-/* --- Hero: Centered and Balanced --- */
+/* --- HERO SECTION RECOVERY --- */
 #hero-section {
     width: 100%;
     height: 100vh;
@@ -59,10 +90,8 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    width: 90%;
-    gap: 50px; /* Space between photo and text */
+    max-width: 1100px;
+    gap: 60px;
 }
 
 .headshot {
@@ -70,23 +99,46 @@ header {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0;
 }
 
-#hero-text-container {
-    text-align: left;
-    max-width: 600px;
+.hero-title {
+    font-family: 'Old Standard TT', serif !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+    color: var(--accent-blue) !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
 }
 
-/* --- Animations & Writing --- */
-@keyframes spin {
+/* --- LINKEDIN BUTTON RECOVERY --- */
+.social {
+    color: var(--soft-blue) !important;
+    text-decoration: none !important;
+    font-size: 14px !important;
+    border: 1px solid rgba(165, 180, 252, 0.3) !important;
+    padding: 6px 12px !important;
+    border-radius: 4px !important;
+    transition: 0.3s !important;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.social:hover {
+    background: rgba(165, 180, 252, 0.1) !important;
+    color: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+/* --- WRITING & SPIN RECOVERY --- */
+@keyframes spin-icon {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
 .spinning {
     display: inline-block;
-    animation: spin 1s infinite linear;
+    animation: spin-icon 1s infinite linear;
 }
 
 #lucky-button {
@@ -95,15 +147,43 @@ header {
     color: var(--soft-blue);
     padding: 10px 20px;
     font-family: 'Roboto Serif', serif;
+    font-size: 14px;
     cursor: pointer;
     margin-top: 20px;
+    transition: 0.4s;
 }
 
-/* --- General Structure --- */
-.ballet-title { font-family: 'Ballet', cursive !important; font-size: 50px; color: var(--accent-blue); margin-bottom: 30px; }
-.section { padding: 15vh 10vw; max-width: 1100px; margin: 0 auto; }
-.collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
+#lucky-button:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+
+#poem-iframe {
+    border: 1px solid rgba(165,180,252,0.2);
+    background: white; /* Makes reading PDFs easier in dark mode */
+}
+
+/* --- GENERAL --- */
+.ballet-header {
+    font-family: 'Ballet', cursive !important;
+    font-size: 50px !important;
+    color: var(--accent-blue) !important;
+    font-weight: normal;
+}
+
+.section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
+
+.collapsible {
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+}
+
+.collapsible::before { content: '+'; margin-right: 12px; font-size: 10px; color: var(--accent-blue); }
+.collapsible.active::before { content: '—'; }
+
 .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
+
+.email-text { font-size: 14px; margin-bottom: 20px; }
 
 #loading { width: 100vw; height: 100vh; position: fixed; background: var(--deep-navy); z-index: 9999; display: flex; justify-content: center; align-items: center; }
 #spinner { width: 40px; height: 40px; border: 3px solid var(--accent-blue); border-bottom: 3px solid transparent; border-radius: 50%; animation: rotate 0.8s infinite linear; }
