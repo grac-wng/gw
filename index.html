@@ -62,25 +62,13 @@
         <h1 class="ballet-title">projects</h1>
         <div id="research">
             <h3 class="collapsible">research</h3>
-            <div class="content">
-                <p>Genomic data analysis and bioinformatics research focusing on sequence diversity and quality control.</p>
-            </div>
+            <div class="content"><p>Genomic data analysis and bioinformatics research.</p></div>
         </div>
         <div id="clinical">
             <h3 class="collapsible">clinical</h3>
-            <div class="content">
-                <p>Shadowing and clinical experience within neuroscience and neurosurgical contexts.</p>
-            </div>
+            <div class="content"><p>Shadowing and clinical experience within neuroscience.</p></div>
         </div>
-        <div id="volunteer">
-            <h3 class="collapsible">volunteer</h3>
-            <div class="content"><p>Community involvement and health literacy projects.</p></div>
         </div>
-        <div id="work">
-            <h3 class="collapsible">work</h3>
-            <div class="content"><p>Professional laboratory and academic roles.</p></div>
-        </div>
-    </div>
 
     <div id="messing" class="section">
         <h1 class="ballet-title">messing around</h1>
@@ -89,14 +77,7 @@
             <div class="content">
                 <audio controls>
                     <source src="media/cancer.m4a" type="audio/mp4">
-                    your browser does not support the audio element.
                 </audio>
-            </div>
-        </div>
-        <div id="architecture">
-            <h3 class="collapsible">architecture</h3>
-            <div class="content">
-                <p>Portfolio slideshow under development.</p>
             </div>
         </div>
         <div id="writing">
@@ -104,8 +85,11 @@
             <div class="content">
                 <p>Short poem snippets. Click below to uncover a random piece.</p>
                 <button id="lucky-button" onclick="luckySnippet()">
-                    <i class="fas fa-random"></i> i'm feeling lucky
+                    <i class="fas fa-sync-alt" id="lucky-icon"></i> i'm feeling lucky
                 </button>
+                <div id="poem-viewer-container" style="display:none; margin-top:30px;">
+                    <iframe id="poem-iframe" src="" width="100%" height="500px" style="border:1px solid rgba(165,180,252,0.2);"></iframe>
+                </div>
             </div>
         </div>
     </div>
