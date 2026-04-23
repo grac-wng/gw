@@ -13,12 +13,10 @@ body {
     margin: 0;
 }
 
-/* Base text transform for global lowercase look */
-p, span, li, h1, h2, h3, h4, a, .dropbtn {
-    text-transform: lowercase;
-}
+/* Base lowercase logic */
+p, span, li, h1, h2, h3, h4, a, .dropbtn { text-transform: lowercase; }
 
-/* Exception blocks for Acronyms & Parkinson's */
+/* Acronym Exceptions */
 .description, .project-block p, .advisor-line, .method-col p, .research-card p, #hero-text-container p {
     text-transform: none !important;
 }
@@ -42,81 +40,78 @@ header #logo {
     text-decoration: none !important;
 }
 
-.nav-link, .dropbtn { 
-    color: var(--soft-blue) !important; 
-    text-decoration: none !important; 
-    font-size: 14px !important; 
-}
-
+.nav-link, .dropbtn { color: var(--soft-blue) !important; text-decoration: none !important; font-size: 14px !important; }
 .dropdown { display: inline-block; position: relative; margin-left: 2.5vw; }
-.dropdown-content { 
-    display: none; 
-    position: absolute; 
-    top: 100%; 
-    left: 0; 
-    background: var(--deep-navy); 
-    min-width: 180px; 
-    padding: 10px 0; 
-}
+.dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: var(--deep-navy); min-width: 180px; padding: 10px 0; }
 .dropdown:hover .dropdown-content { display: block; }
 
-/* Force Staircase padding with high specificity */
 #navigation .dropdown-content a {
     color: var(--soft-blue) !important;
-    text-decoration: none !important;
     display: block !important;
     padding: 8px 0 !important;
     font-size: 14px !important;
-    transition: 0.3s;
 }
 
+/* Staggered offsets for the staircase look */
 #navigation .dropdown-content a.nav-item-1 { padding-left: 15px !important; }
 #navigation .dropdown-content a.nav-item-2 { padding-left: 30px !important; }
 #navigation .dropdown-content a.nav-item-3 { padding-left: 45px !important; }
 #navigation .dropdown-content a.nav-item-4 { padding-left: 60px !important; }
 
-/* --- Hero Section --- */
+/* --- Hero --- */
 #hero-section { width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; }
-#hero-content { display: flex; flex-direction: row; align-items: center; max-width: 1000px; gap: 50px; padding: 0 5vw; }
+#hero-content { display: flex; align-items: center; max-width: 1000px; gap: 50px; padding: 0 5vw; }
 .headshot { width: 300px !important; height: 300px !important; border-radius: 50%; object-fit: cover; }
 .hero-title { font-family: 'Old Standard TT', serif !important; font-style: italic; color: var(--accent-blue); font-size: 16px; margin-bottom: 15px; }
 
-/* --- Research & Clinical Cards --- */
-.research-card { padding: 25px; margin-bottom: 15px; border-radius: 4px; border: 1px solid transparent; transition: background-color 0.4s ease; }
-.research-card:hover { background-color: rgba(209, 217, 230, 0.03); border: 1px solid rgba(165, 180, 252, 0.1); }
-.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+/* --- Cards Styling --- */
+.research-card { 
+    padding: 25px; 
+    margin-bottom: 15px; 
+    border: 1px solid transparent; 
+    transition: 0.4s; 
+}
+.research-card:hover { 
+    background-color: rgba(209, 217, 230, 0.03); 
+    border: 1px solid rgba(165, 180, 252, 0.1); 
+}
+
+/* Clinical GIF to the right */
+.clinical-flex { display: flex; gap: 30px; align-items: flex-start; }
+.card-text { flex: 1; }
+.card-visual { flex: 0 0 250px; margin-top: 10px; }
+.project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
+
 .lab-name { font-weight: 600; color: var(--soft-blue); font-size: 15px; }
 .advisor-line { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 12px; margin-bottom: 12px; color: rgba(209, 217, 230, 0.6); }
-.advisor-line a { color: var(--accent-blue); text-decoration: none; }
-.mini-button { font-size: 10px; text-decoration: none; color: var(--accent-blue); border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 2px; }
+.mini-button { font-size: 10px; border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 2px; color: var(--accent-blue); text-decoration: none; }
 
-/* Clinical GIF */
-.gif-container { width: 100%; max-width: 400px; margin: 15px 0; border-radius: 4px; overflow: hidden; border: 1px solid rgba(165, 180, 252, 0.2); }
-.project-gif { width: 100%; display: block; filter: grayscale(20%) contrast(110%); }
+.methods-grid { display: flex; gap: 30px; margin-top: 15px; }
+.method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
-/* --- Architecture Embed --- */
-.canva-embed-container { position: relative; width: 100%; height: 80vh; margin-top: 20px; }
-.canva-embed-container iframe { position: absolute; width: 100%; height: 100%; border: none; }
+.project-block { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(209, 217, 230, 0.08); }
+.project-role { font-style: italic; color: var(--soft-blue); display: block; margin-bottom: 8px; }
 
-/* --- Writing / Lucky Button --- */
-#lucky-button {
-    background: transparent;
-    border: 1px solid var(--accent-blue);
-    color: var(--accent-blue);
-    padding: 10px 20px;
-    font-family: 'Roboto Serif', serif;
-    font-size: 13px;
-    cursor: pointer;
+/* --- Footer restored --- */
+#footer-tagline { 
+    font-family: 'Old Standard TT', serif !important; 
+    font-style: italic !important; 
+    font-size: 13px !important; 
+    color: rgba(209, 217, 230, 0.4) !important; 
+    text-align: center; 
+    padding: 10vh 0; 
     text-transform: lowercase;
-    border-radius: 4px;
-    margin-top: 15px;
-    transition: 0.3s;
 }
-#lucky-button:hover { background: rgba(165, 180, 252, 0.1); }
+
+/* --- Lucky Button & Modal --- */
+#lucky-button {
+    background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue);
+    padding: 10px 20px; font-family: 'Roboto Serif', serif; font-size: 13px; cursor: pointer;
+    border-radius: 4px; margin-top: 15px; transition: 0.3s;
+}
 .spinning { animation: spin 1s infinite linear; }
 @keyframes spin { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
 
-/* --- Modal Style --- */
 .modal {
     display: none; position: fixed; z-index: 2000; left: 0; top: 0;
     width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.95);
@@ -127,12 +122,12 @@ header #logo {
     padding: 40px; border: 1px solid rgba(165, 180, 252, 0.2);
     width: 90%; max-width: 500px; text-align: center;
 }
-#modal-image-wrapper img { max-width: 100%; height: auto; border-radius: 4px; }
+#poem-image { max-width: 100%; border-radius: 4px; }
 .close-button { position: absolute; top: 15px; right: 20px; color: var(--soft-blue); font-size: 28px; cursor: pointer; }
 
-/* --- Layout Utils --- */
-.section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
+/* --- Section Utils --- */
 .ballet-header { font-family: 'Ballet', cursive !important; font-size: 50px; color: var(--accent-blue); font-weight: normal; }
+.section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
 .collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
 .collapsible::before { content: '+'; margin-right: 12px; font-size: 10px; color: var(--accent-blue); }
 .collapsible.active::before { content: '—'; }
