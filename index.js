@@ -7,7 +7,6 @@ $(document).ready(function() {
     }, 150); 
 });
 
-// Smooth scroll logic
 $('a[href*="#"]').on('click', function(e) {
     var target = $(this.hash);
     if (target.length) {

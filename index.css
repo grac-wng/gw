@@ -36,17 +36,25 @@ header {
     color: var(--soft-blue);
     text-decoration: none;
     margin-left: 2.5vw;
-    font-size: 14px; /* Target size for navigation */
+    font-size: 14px;
 }
 
-/* --- Dropdown Alignment --- */
-.dropdown { display: inline-block; position: relative; }
+/* --- Dropdown Alignment Fixed --- */
+.dropdown { 
+    display: inline-block; 
+    position: relative; 
+    margin-left: 2.5vw; /* Keeps space between 'projects' and 'messing' */
+}
+
+#navigation .dropdown:first-child {
+    margin-left: 0; /* Prevents double-margin on the first item */
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    left: 2.5vw;
+    left: 0; /* Aligns flush with the start of the word 'projects' or 'messing' */
     background: transparent;
     min-width: 150px;
     text-align: left;
@@ -55,6 +63,7 @@ header {
 .dropdown-content a {
     display: block !important;
     padding: 5px 0px !important;
+    margin-left: 0 !important; /* Resets the nav margin for dropdown items */
     transition: 0.4s ease-in-out;
 }
 
@@ -71,13 +80,13 @@ header {
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* --- Sub-section Text Scaling --- */
+/* --- Sub-section Text Scaling & Spacing --- */
 #hero-text-container h1 {
     font-family: 'Old Standard TT', serif !important;
     font-style: italic;
     font-weight: 400;
     color: var(--accent-blue);
-    font-size: 14px; /* Matching navigation size */
+    font-size: 14px; 
     letter-spacing: 0.5px;
 }
 
@@ -88,29 +97,33 @@ header {
     font-size: 50px;
 }
 
+/* Subsection headers: smaller font + reduced top spacing */
 h3 {
     font-family: 'Roboto Serif', serif !important;
-    font-size: 14px; /* Matching navigation size */
+    font-size: 14px; 
     font-weight: 400;
-    margin-top: 5vh;
+    margin-top: 2vh; /* Reduced from 5vh */
 }
 
-/* --- Increased Section Spacing --- */
+.email-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Increased Section Spacing (Major sections) */
 .section { 
-    padding: 25vh 4vw; /* Increased from 5vh to 25vh for major spacing */
+    padding: 20vh 4vw; 
 }
 
-/* --- Social/LinkedIn Button --- */
 .social {
     color: var(--soft-blue);
     text-decoration: none;
-    font-size: 14px; /* Matching navigation size */
+    font-size: 14px; 
     border: 1px solid rgba(165, 180, 252, 0.3);
     padding: 6px 12px;
     border-radius: 4px;
     transition: 0.3s;
     display: inline-block;
-    margin-top: 20px;
 }
 
 .social:hover {
@@ -118,7 +131,6 @@ h3 {
     color: var(--accent-blue);
 }
 
-/* --- Hero Layout --- */
 #hero-section {
     width: 100%;
     min-height: 100vh;
