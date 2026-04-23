@@ -28,7 +28,6 @@
         /* --- Typography & Global Aesthetics --- */
         p, span, li, h1, h2, h3, h4, a, .dropbtn { text-transform: lowercase; }
 
-        /* Unified Description Size (13px) */
         .description, .project-block p, .method-col p, .research-card p, 
         .simple-list li, #hero-text-container p, .writing-hint {
             text-transform: none !important;
@@ -36,7 +35,6 @@
             line-height: 1.6;
         }
 
-        /* Acronym Utility */
         .caps { text-transform: uppercase !important; }
 
         /* --- Navigation --- */
@@ -70,7 +68,7 @@
             min-width: 180px; 
             padding: 10px 0; 
         }
-        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropdown-content { display: block !important; }
         .dropdown-content a {
             color: var(--soft-blue) !important;
             text-decoration: none !important;
@@ -80,11 +78,11 @@
         }
         .dropdown-content a:hover { color: var(--accent-blue) !important; }
 
-        /* Staircase Stagger Re-applied */
-        .nav-item-1 { padding-left: 15px !important; }
-        .nav-item-2 { padding-left: 30px !important; }
-        .nav-item-3 { padding-left: 45px !important; }
-        .nav-item-4 { padding-left: 60px !important; }
+        /* --- STAIRCASE FIX --- */
+        #navigation .dropdown-content a.nav-item-1 { padding-left: 20px !important; }
+        #navigation .dropdown-content a.nav-item-2 { padding-left: 40px !important; }
+        #navigation .dropdown-content a.nav-item-3 { padding-left: 60px !important; }
+        #navigation .dropdown-content a.nav-item-4 { padding-left: 80px !important; }
 
         /* --- Sections --- */
         .section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
@@ -153,10 +151,20 @@
         .collapsible.active::before { content: '—'; }
         .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
 
-        /* --- Modal (Reduced Size) --- */
+        /* --- MODAL SIZE FIX --- */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.95); backdrop-filter: blur(8px); }
-        .modal-content { position: relative; background-color: var(--deep-navy); margin: 10% auto; padding: 30px; border: 1px solid rgba(165, 180, 252, 0.2); width: 80%; max-width: 380px; text-align: center; }
-        .close-button { position: absolute; top: 10px; right: 15px; color: var(--soft-blue); font-size: 24px; cursor: pointer; }
+        .modal-content { 
+            position: relative; 
+            background-color: var(--deep-navy); 
+            margin: 15vh auto; 
+            padding: 20px; 
+            border: 1px solid rgba(165, 180, 252, 0.2); 
+            width: 70%; 
+            max-width: 320px; /* Force small size */
+            text-align: center; 
+        }
+        .close-button { position: absolute; top: 5px; right: 10px; color: var(--soft-blue); font-size: 20px; cursor: pointer; }
+        #poem-image { max-width: 100%; height: auto; border-radius: 2px; }
 
         /* --- Loader --- */
         #loading { width: 100vw; height: 100vh; position: fixed; background: var(--deep-navy); z-index: 9999; display: flex; justify-content: center; align-items: center; }
@@ -325,7 +333,7 @@
     <div id="poem-modal" class="modal">
         <div class="modal-content animated fadeInUp">
             <span class="close-button" onclick="closePoem()">&times;</span>
-            <img id="poem-image" src="" alt="Snippet" style="max-width:100%">
+            <img id="poem-image" src="" alt="Snippet">
         </div>
     </div>
 
