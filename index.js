@@ -1,17 +1,16 @@
 $(document).ready(function() {
-    // Kill the loading screen quickly
+    // Reveal site almost immediately
     setTimeout(function() {
         $("#loading").addClass("animated fadeOut");
         setTimeout(function() {
             $("#loading").css("display", "none");
-            // Reveal the content with a nice animation
-            $("#hero-content").css("opacity", "1");
+            // Trigger bio animation
             $("#hero-content").addClass("animated fadeInUp");
         }, 600);
-    }, 200); 
+    }, 150); 
 });
 
-// Navigation background on scroll
+// Navigation background shift
 $(window).on("scroll", function() {
     if ($(window).scrollTop() > 50) {
         $("#header").addClass("nav-show");
@@ -20,13 +19,13 @@ $(window).on("scroll", function() {
     }
 });
 
-// Smooth scroll for anchors
+// Smooth scroll to anchors
 $('a[href*="#"]').on('click', function(e) {
     var target = $(this.hash);
     if (target.length) {
         e.preventDefault();
         $('html, body').animate({
-            scrollTop: target.offset().top - 70
+            scrollTop: target.offset().top - 80
         }, 800);
     }
 });
