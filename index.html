@@ -28,8 +28,9 @@
         /* --- Typography & Global Aesthetics --- */
         p, span, li, h1, h2, h3, h4, a, .dropbtn { text-transform: lowercase; }
 
-        /* Unified Description Size & Normal Casing for prose */
-        .description, .project-block p, .method-col p, .research-card p, .simple-list li, #hero-text-container p {
+        /* Unified Description Size (13px) */
+        .description, .project-block p, .method-col p, .research-card p, 
+        .simple-list li, #hero-text-container p, .writing-hint {
             text-transform: none !important;
             font-size: 13px !important;
             line-height: 1.6;
@@ -60,7 +61,6 @@
         .nav-link, .dropbtn { color: var(--soft-blue) !important; text-decoration: none !important; font-size: 14px !important; }
         .dropdown { display: inline-block; position: relative; margin-left: 2.5vw; }
 
-        /* Floating Text Dropdown (No Blocks) */
         .dropdown-content { 
             display: none; 
             position: absolute; 
@@ -80,7 +80,7 @@
         }
         .dropdown-content a:hover { color: var(--accent-blue) !important; }
 
-        /* Staircase Stagger */
+        /* Staircase Stagger Re-applied */
         .nav-item-1 { padding-left: 15px !important; }
         .nav-item-2 { padding-left: 30px !important; }
         .nav-item-3 { padding-left: 45px !important; }
@@ -117,9 +117,7 @@
         
         .advisor-line { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 12px; margin-bottom: 12px; color: rgba(209, 217, 230, 0.6); }
         .advisor-line a { color: var(--accent-blue) !important; text-decoration: none !important; }
-        .advisor-line a:hover { text-decoration: underline !important; }
 
-        /* Clinical Side-by-Side */
         .clinical-flex { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
         .card-text { flex: 1; }
         .card-visual { flex: 0 0 250px; }
@@ -134,7 +132,10 @@
 
         .link-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
         .text-link { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 13px; color: var(--accent-blue) !important; text-decoration: none !important; }
-        .text-link:hover { text-decoration: underline !important; }
+
+        .methods-grid { display: flex; gap: 30px; margin-top: 15px; }
+        .method-col { flex: 1; }
+        .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
         /* --- Music Section --- */
         .audio-label { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 14px !important; color: var(--accent-blue); margin-bottom: 10px; }
@@ -162,7 +163,7 @@
         #spinner { width: 40px; height: 40px; border: 3px solid var(--accent-blue); border-bottom: 3px solid transparent; border-radius: 50%; animation: rotate 0.8s infinite linear; }
         @keyframes rotate { from {transform: rotate(0deg);} to {transform: rotate(360deg);} }
         
-        #lucky-button { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 4px; transition: 0.3s; }
+        #lucky-button { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 4px; transition: 0.3s; margin-top: 15px; }
         .spinning { animation: rotate 1s infinite linear; }
     </style>
 </head>
@@ -223,6 +224,16 @@
                     </div>
                     <p class="advisor-line">advised by <a href="https://bioscience.ucla.edu/people/chao-peng/" target="_blank">dr. chao peng</a> and dr. huimin guo</p>
                     <p class="description">investigating the development and progression of alpha-synuclein and tau related neurodegenerative diseases.</p>
+                    <div class="methods-grid">
+                        <div class="method-col">
+                            <span class="method-label">dry, computational</span>
+                            <p>bioinformatics analysis (python) & genomic sequencing</p>
+                        </div>
+                        <div class="method-col">
+                            <span class="method-label">wet, bench</span>
+                            <p>mice models, high through-put screening, surgical implantation of intravenous pump, electrophoresis, chromatography, paraffin embedding</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="research-card">
@@ -234,7 +245,7 @@
                     
                     <div class="project-block">
                         <span class="project-role">lab manager</span>
-                        <p>oversee a research group of ~50 active lab members & extensive lab alumni network. manage RA onboarding, study design, <span class="caps">IRB</span>, <span class="caps">OSF</span> pre-registration, and statistical plans.</p>
+                        <p>oversee a research group of ~50 active lab members & extensive lab alumni network. manage <span class="caps">RA</span> onboarding, study design, <span class="caps">IRB</span>, <span class="caps">OSF</span> pre-registration, and statistical plans.</p>
                     </div>
                     <div class="project-block">
                         <span class="project-role">project lead</span>
@@ -248,7 +259,7 @@
                         <span class="project-role">additional focus areas</span>
                         <ul class="simple-list">
                             <li>privacy in on-line and off-line contexts</li>
-                            <li>disclosure to social companion AI</li>
+                            <li>disclosure to social companion <span class="caps">AI</span></li>
                             <li>intimacy and relationality in synthetic relationships</li>
                         </ul>
                     </div>
@@ -264,6 +275,16 @@
                         <div class="card-header"><span class="lab-name">neurosurgical observation</span></div>
                         <p class="advisor-line">instructed by <a href="https://alextaghvamd.com/" target="_blank">dr. alexander taghva</a> and <a href="https://www.drbhwang.com/" target="_blank">dr. brian hwang</a></p>
                         <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>) and other minimally invasive neurosurgical procedures.</p>
+                        <div class="methods-grid">
+                            <div class="method-col">
+                                <span class="method-label">focus areas</span>
+                                <p>Deep Brain Stimulation (<span class="caps">DBS</span>) & endoscopic spine surgeries</p>
+                            </div>
+                            <div class="method-col">
+                                <span class="method-label">clinical setting</span>
+                                <p>surgical observation, patient consultations, and neurosurgical workflow integration</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-visual">
                         <img src="img/dbs.gif" alt="DBS" class="project-gif">
@@ -293,7 +314,7 @@
         <div id="writing">
             <h3 class="collapsible">writing</h3>
             <div class="content">
-                <p>click for a short thought snippet.</p>
+                <p class="writing-hint">click for a short thought snippet.</p>
                 <button id="lucky-button" onclick="luckySnippet()"><i class="fas fa-sync-alt" id="lucky-icon"></i> a piece of my mind</button>
             </div>
         </div>
