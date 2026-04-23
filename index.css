@@ -189,10 +189,11 @@ header {
 #rightImage {
     width: 70% !important;
     height: 100vh;
-    background: url("https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2013/06/mri_brain_scan2/12915441-1-eng-GB/MRI_brain_scan.gif") center center;
-    background-size: contain; /* critically: this makes the full horizontal image fit */
+    background-color: var(--deep-navy); /* matches your loading screen */
+    background-image: url("img/mri.gif"); /* points to the new folder and name */
+    background-size: contain;
     background-repeat: no-repeat;
-    background-color: #000; /* fills extra space with pure black to match the gif's background */
+    background-position: center;
 }
 
 /* --- other sections --- */
