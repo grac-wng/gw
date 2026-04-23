@@ -60,17 +60,54 @@
 
     <div id="projects" class="section">
         <h1 class="ballet-title">projects</h1>
-        <div id="research"><h3>research</h3></div>
-        <div id="clinical"><h3>clinical</h3></div>
-        <div id="volunteer"><h3>volunteer</h3></div>
-        <div id="work"><h3>work</h3></div>
+        <div id="research">
+            <h3 class="collapsible">research</h3>
+            <div class="content">
+                <p>Genomic data analysis and bioinformatics research focusing on sequence diversity and quality control.</p>
+            </div>
+        </div>
+        <div id="clinical">
+            <h3 class="collapsible">clinical</h3>
+            <div class="content">
+                <p>Shadowing and clinical experience within neuroscience and neurosurgical contexts.</p>
+            </div>
+        </div>
+        <div id="volunteer">
+            <h3 class="collapsible">volunteer</h3>
+            <div class="content"><p>Community involvement and health literacy projects.</p></div>
+        </div>
+        <div id="work">
+            <h3 class="collapsible">work</h3>
+            <div class="content"><p>Professional laboratory and academic roles.</p></div>
+        </div>
     </div>
 
     <div id="messing" class="section">
         <h1 class="ballet-title">messing around</h1>
-        <div id="music"><h3>music</h3></div>
-        <div id="architecture"><h3>architecture</h3></div>
-        <div id="writing"><h3>writing</h3></div>
+        <div id="music">
+            <h3 class="collapsible">music</h3>
+            <div class="content">
+                <audio controls>
+                    <source src="media/cancer.m4a" type="audio/mp4">
+                    your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div id="architecture">
+            <h3 class="collapsible">architecture</h3>
+            <div class="content">
+                <p>Portfolio slideshow under development.</p>
+            </div>
+        </div>
+        <div id="writing">
+            <h3 class="collapsible">writing</h3>
+            <div class="content">
+                <p>Short poem snippets. Click below to uncover a random piece.</p>
+                <button id="lucky-button" onclick="luckySnippet()">
+                    <i class="fas fa-random"></i> i'm feeling lucky
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="contact" class="section">
