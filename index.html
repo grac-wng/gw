@@ -83,6 +83,7 @@
         <div id="music">
             <h3 class="collapsible">music</h3>
             <div class="content">
+                <p class="audio-label">cancer - 21p</p>
                 <audio controls><source src="media/cancer.m4a" type="audio/mp4"></audio>
             </div>
         </div>
@@ -101,10 +102,6 @@
                 <button id="lucky-button" onclick="luckySnippet()">
                     <i class="fas fa-sync-alt" id="lucky-icon"></i> i'm feeling lucky
                 </button>
-                <div id="poem-display-container" style="display:none; margin-top:30px;">
-                    <img id="poem-image" src="" alt="Poem Snippet">
-                    <button onclick="closePoem()" id="close-poem">close</button>
-                </div>
             </div>
         </div>
     </div>
@@ -122,6 +119,15 @@
     <footer>
         <p id="footer-tagline">however it unfolds</p>
     </footer>
+
+    <div id="poem-modal" class="modal">
+        <div class="modal-content animated fadeInUp">
+            <span class="close-button" onclick="closePoem()">&times;</span>
+            <div id="modal-image-wrapper">
+                <img id="poem-image" src="" alt="Poem Snippet">
+            </div>
+        </div>
+    </div>
 
     <script src="index.js" type="text/javascript"></script>
 </body>

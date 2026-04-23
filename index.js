@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    // Hide loader
+    // Hide loading screen
     setTimeout(function() { $("#loading").fadeOut(600); }, 150);
 
-    // Collapsibles
+    // Collapsibles logic
     $(".collapsible").on("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
@@ -14,35 +14,44 @@ $(document).ready(function() {
     });
 });
 
+// Lucky Snippet Logic (Pop-up)
 function luckySnippet() {
     const icon = document.getElementById('lucky-icon');
-    const container = document.getElementById('poem-display-container');
+    const modal = document.getElementById('poem-modal');
     const img = document.getElementById('poem-image');
     
     icon.classList.add('spinning');
     
     setTimeout(() => {
         const randomNum = Math.floor(Math.random() * 20) + 1;
-        // Ensure you have snippet (1).png through snippet (20).png in your docs folder
+        // Make sure these are saved as PNGs in your docs folder
         img.src = `docs/snippet (${randomNum}).png`;
         
         img.onload = function() {
             icon.classList.remove('spinning');
-            container.style.display = 'block';
-            
-            // Adjust the writing section's height to fit the new image
-            const parent = container.closest('.content');
-            parent.style.maxHeight = (parent.scrollHeight + 600) + "px";
+            modal.style.display = "block";
+            // Prevent background scrolling
+            document.body.style.overflow = "hidden";
         };
     }, 800);
 }
 
+// Close Modal
 function closePoem() {
-    const container = document.getElementById('poem-display-container');
-    container.style.display = 'none';
+    const modal = document.getElementById('poem-modal');
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
 }
 
-// Smooth scroll logic
+// Close if clicking outside the box
+window.onclick = function(event) {
+    const modal = document.getElementById('poem-modal');
+    if (event.target == modal) {
+        closePoem();
+    }
+}
+
+// Smooth scroll
 $('a[href*="#"]').on('click', function(e) {
     var target = $(this.hash);
     if (target.length) {
