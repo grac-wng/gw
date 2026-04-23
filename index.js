@@ -1,6 +1,8 @@
 $(document).ready(function() {
+    // Page Loader
     setTimeout(function() { $("#loading").fadeOut(600); }, 150);
 
+    // Accordion Logic
     $(".collapsible").on("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
@@ -8,6 +10,15 @@ $(document).ready(function() {
             content.style.maxHeight = null;
         } else {
             content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+
+    // Smooth Anchor Scrolling
+    $('a[href*="#"]').on('click', function(e) {
+        var target = $(this.hash);
+        if (target.length) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
         }
     });
 });
@@ -43,11 +54,3 @@ function closePoem() {
 window.onclick = function(event) {
     if (event.target == document.getElementById('poem-modal')) { closePoem(); }
 }
-
-$('a[href*="#"]').on('click', function(e) {
-    var target = $(this.hash);
-    if (target.length) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
-    }
-});
