@@ -1,8 +1,8 @@
 $(document).ready(function() {
-    // Page Loader
+    // Hide loader
     setTimeout(function() { $("#loading").fadeOut(600); }, 150);
 
-    // Accordion Logic
+    // Accordion Control
     $(".collapsible").on("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
@@ -13,7 +13,7 @@ $(document).ready(function() {
         }
     });
 
-    // Smooth Anchor Scrolling
+    // Smooth Scrolling
     $('a[href*="#"]').on('click', function(e) {
         var target = $(this.hash);
         if (target.length) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
 });
 
 function luckySnippet() {
-    const icon = document.getElementById('lucky-icon');
+    const icon = document.querySelector('#lucky-button i');
     const modal = document.getElementById('poem-modal');
     const img = document.getElementById('poem-image');
     
