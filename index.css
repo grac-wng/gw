@@ -11,10 +11,9 @@ body {
     background: var(--deep-navy);
     color: var(--soft-blue);
     margin: 0;
-    text-transform: lowercase; /* Restoring the lowercase aesthetic */
+    text-transform: lowercase;
 }
 
-/* --- Header & Navigation Alignment --- */
 header {
     width: 92vw;
     padding: 2vh 4vw;
@@ -37,20 +36,17 @@ header {
     color: var(--soft-blue);
     text-decoration: none;
     margin-left: 2.5vw;
-    font-size: 14px;
+    font-size: 14px; /* Target size for navigation */
 }
 
-/* --- Fixed Dropdown Alignment --- */
-.dropdown { 
-    display: inline-block; 
-    position: relative; 
-}
+/* --- Dropdown Alignment --- */
+.dropdown { display: inline-block; position: relative; }
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    left: 2.5vw; /* Aligns under the link, not to the far left */
+    left: 2.5vw;
     background: transparent;
     min-width: 150px;
     text-align: left;
@@ -59,7 +55,6 @@ header {
 .dropdown-content a {
     display: block !important;
     padding: 5px 0px !important;
-    margin: 0 !important;
     transition: 0.4s ease-in-out;
 }
 
@@ -76,13 +71,14 @@ header {
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* --- Typography Restoration --- */
+/* --- Sub-section Text Scaling --- */
 #hero-text-container h1 {
     font-family: 'Old Standard TT', serif !important;
     font-style: italic;
     font-weight: 400;
     color: var(--accent-blue);
-    font-size: 32px;
+    font-size: 14px; /* Matching navigation size */
+    letter-spacing: 0.5px;
 }
 
 .ballet-title {
@@ -92,23 +88,29 @@ header {
     font-size: 50px;
 }
 
-/* Sub-headings (research, clinical) use standard font */
 h3 {
     font-family: 'Roboto Serif', serif !important;
-    font-size: 24px;
+    font-size: 14px; /* Matching navigation size */
     font-weight: 400;
     margin-top: 5vh;
+}
+
+/* --- Increased Section Spacing --- */
+.section { 
+    padding: 25vh 4vw; /* Increased from 5vh to 25vh for major spacing */
 }
 
 /* --- Social/LinkedIn Button --- */
 .social {
     color: var(--soft-blue);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px; /* Matching navigation size */
     border: 1px solid rgba(165, 180, 252, 0.3);
-    padding: 8px 15px;
+    padding: 6px 12px;
     border-radius: 4px;
     transition: 0.3s;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 .social:hover {
@@ -116,7 +118,7 @@ h3 {
     color: var(--accent-blue);
 }
 
-/* --- Layout --- */
+/* --- Hero Layout --- */
 #hero-section {
     width: 100%;
     min-height: 100vh;
@@ -138,8 +140,6 @@ h3 {
     border-radius: 50%;
     object-fit: cover;
 }
-
-.section { padding: 5vh 4vw; }
 
 #loading {
     width: 100vw; height: 100vh; position: fixed;
