@@ -11,9 +11,10 @@ body {
     background: var(--deep-navy);
     color: var(--soft-blue);
     margin: 0;
+    text-transform: lowercase; /* Restoring the lowercase aesthetic */
 }
 
-/* --- Navigation & Staircase --- */
+/* --- Header & Navigation Alignment --- */
 header {
     width: 92vw;
     padding: 2vh 4vw;
@@ -37,18 +38,21 @@ header {
     text-decoration: none;
     margin-left: 2.5vw;
     font-size: 14px;
-    text-transform: lowercase;
 }
 
-.dropdown { display: inline-block; position: relative; }
+/* --- Fixed Dropdown Alignment --- */
+.dropdown { 
+    display: inline-block; 
+    position: relative; 
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    left: 2.5vw; /* Aligns under the link, not to the far left */
     background: transparent;
-    min-width: 200px;
+    min-width: 150px;
     text-align: left;
 }
 
@@ -59,6 +63,7 @@ header {
     transition: 0.4s ease-in-out;
 }
 
+/* Staircase Indentation */
 .dropdown-content a:nth-child(1) { padding-left: 10px !important; }
 .dropdown-content a:nth-child(2) { padding-left: 25px !important; }
 .dropdown-content a:nth-child(3) { padding-left: 40px !important; }
@@ -71,20 +76,47 @@ header {
 
 .dropdown:hover .dropdown-content { display: block; }
 
-/* --- Section Formatting --- */
-.section h1, h3 {
+/* --- Typography Restoration --- */
+#hero-text-container h1 {
+    font-family: 'Old Standard TT', serif !important;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent-blue);
+    font-size: 32px;
+}
+
+.ballet-title {
     font-family: 'Ballet', cursive !important;
     font-weight: normal;
     color: var(--accent-blue);
-    text-transform: lowercase;
+    font-size: 50px;
 }
 
-.section h1 { font-size: 50px; margin-top: 10vh; margin-bottom: 20px; }
-h3 { font-size: 32px; margin-top: 5vh; }
+/* Sub-headings (research, clinical) use standard font */
+h3 {
+    font-family: 'Roboto Serif', serif !important;
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 5vh;
+}
 
-.section { padding: 5vh 4vw; }
+/* --- Social/LinkedIn Button --- */
+.social {
+    color: var(--soft-blue);
+    text-decoration: none;
+    font-size: 16px;
+    border: 1px solid rgba(165, 180, 252, 0.3);
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
 
-/* --- Hero --- */
+.social:hover {
+    background: rgba(165, 180, 252, 0.1);
+    color: var(--accent-blue);
+}
+
+/* --- Layout --- */
 #hero-section {
     width: 100%;
     min-height: 100vh;
@@ -107,7 +139,8 @@ h3 { font-size: 32px; margin-top: 5vh; }
     object-fit: cover;
 }
 
-/* --- Loader --- */
+.section { padding: 5vh 4vw; }
+
 #loading {
     width: 100vw; height: 100vh; position: fixed;
     background: var(--deep-navy); z-index: 9999;

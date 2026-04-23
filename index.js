@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    // Immediate removal of loader
     setTimeout(function() {
         $("#loading").addClass("animated fadeOut");
         setTimeout(function() {
@@ -7,7 +8,7 @@ $(document).ready(function() {
     }, 150); 
 });
 
-// Smooth scroll logic
+// Smooth scroll
 $('a[href*="#"]').on('click', function(e) {
     var target = $(this.hash);
     if (target.length) {
