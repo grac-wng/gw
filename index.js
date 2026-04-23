@@ -19,29 +19,25 @@ function luckySnippet() {
     const modal = document.getElementById('poem-modal');
     const img = document.getElementById('poem-image');
     
-    // Start spin
     icon.classList.add('spinning');
     
-    // Pick random index (1-20)
     const randomNum = Math.floor(Math.random() * 20) + 1;
-    const targetSrc = `docs/snippet (${randomNum}).png`;
+    const targetPath = "docs/snippet (" + randomNum + ").png";
     
-    // Logic: Try to load the image. If it loads, show modal.
-    // If it takes too long or fails, we'll force show it anyway.
-    let imgCheck = new Image();
-    imgCheck.src = targetSrc;
+    const tempImg = new Image();
+    tempImg.src = targetPath;
     
-    imgCheck.onload = function() {
-        img.src = targetSrc;
+    tempImg.onload = function() {
+        img.src = targetPath;
         icon.classList.remove('spinning');
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     };
 
-    imgCheck.onerror = function() {
-        console.error("Failed to load: " + targetSrc);
+    tempImg.onerror = function() {
+        console.error("Missing file: " + targetPath);
         icon.classList.remove('spinning');
-        alert("oops—couldn't find that snippet in your docs folder.");
+        alert("could not find " + targetPath + " in the docs folder.");
     };
 }
 
@@ -50,7 +46,6 @@ function closePoem() {
     document.body.style.overflow = "auto";
 }
 
-// Close on outside click
 window.onclick = function(event) {
     const modal = document.getElementById('poem-modal');
     if (event.target == modal) { closePoem(); }
