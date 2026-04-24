@@ -78,7 +78,6 @@
         }
         .dropdown-content a:hover { color: var(--accent-blue) !important; }
 
-        /* Staircase Indentation */
         #navigation .dropdown-content a.nav-item-1 { padding-left: 20px !important; }
         #navigation .dropdown-content a.nav-item-2 { padding-left: 40px !important; }
         #navigation .dropdown-content a.nav-item-3 { padding-left: 60px !important; }
@@ -136,6 +135,14 @@
         .method-col { flex: 1; }
         .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
+        /* --- Music & Architecture Section --- */
+        .audio-label { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 14px !important; color: var(--accent-blue); margin-bottom: 10px; }
+        .canva-embed-container { position: relative; width: 100%; padding-top: 56.25%; margin-top: 20px; border-radius: 8px; overflow: hidden; }
+        .canva-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        /* --- Footer --- */
+        #footer-tagline { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 13px !important; color: rgba(209, 217, 230, 0.3) !important; text-align: center; padding: 10vh 0; text-transform: lowercase; }
+
         /* --- Collapsible Logic --- */
         .collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
         .collapsible::before { content: '+'; margin-right: 12px; font-size: 10px; color: var(--accent-blue); }
@@ -143,27 +150,8 @@
         .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
 
         /* --- Modal (Translucent) --- */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            background-color: rgba(10, 25, 47, 0.7); 
-            backdrop-filter: blur(5px); 
-        }
-        .modal-content { 
-            position: relative; 
-            background-color: var(--deep-navy); 
-            margin: 15vh auto; 
-            padding: 20px; 
-            border: 1px solid rgba(165, 180, 252, 0.2); 
-            width: 70%; 
-            max-width: 320px; 
-            text-align: center; 
-        }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.7); backdrop-filter: blur(5px); }
+        .modal-content { position: relative; background-color: var(--deep-navy); margin: 15vh auto; padding: 20px; border: 1px solid rgba(165, 180, 252, 0.2); width: 70%; max-width: 320px; text-align: center; }
         .close-button { position: absolute; top: 5px; right: 10px; color: var(--soft-blue); font-size: 20px; cursor: pointer; }
         #poem-image { max-width: 100%; height: auto; border-radius: 2px; }
 
@@ -273,6 +261,13 @@
                         </ul>
                     </div>
                 </div>
+
+                <h4 class="sub-category" style="margin-top: 30px;">previously...</h4>
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">concordia university irvine</span></div>
+                    <p class="advisor-line">advised by <a href="https://www.cui.edu/faculty/sarah-low" target="_blank">dr. sarah low</a></p>
+                    <p class="description">investigating microRNA targets and neuroplasticity markers in neurodegenerative contexts.</p>
+                </div>
             </div>
         </div>
 
@@ -356,10 +351,6 @@
                     <div class="card-header"><span class="lab-name">figure skating coach</span></div>
                     <p class="description">aliso viejo ice palace, lake forest ice palace</p>
                 </div>
-                <div class="research-card">
-                    <div class="card-header"><span class="lab-name">undergraduate student assistant</span></div>
-                    <p class="description">supporting academic and administrative departmental needs within the university context.</p>
-                </div>
             </div>
         </div>
     </div>
@@ -409,7 +400,6 @@
                 content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
             });
 
-            // Smooth Scroll
             $('a[href*="#"]').on('click', function(e) {
                 var target = $(this.hash);
                 if (target.length) {
@@ -418,7 +408,6 @@
                 }
             });
 
-            // GIF Loop Handling
             const gif = document.getElementById('dbs-gif');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
