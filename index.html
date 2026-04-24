@@ -118,7 +118,7 @@
 
         .clinical-flex { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
         .card-text { flex: 1; }
-        .card-visual { flex: 0 0 300px; text-align: center; } /* Enlarged visual container */
+        .card-visual { flex: 0 0 300px; text-align: center; } 
         .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
         .gif-caption { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 10px; color: rgba(209, 217, 230, 0.4); margin-top: 8px; display: block; }
 
@@ -136,23 +136,13 @@
         .method-col { flex: 1; }
         .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
-        /* --- Music Section --- */
-        .audio-label { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 14px !important; color: var(--accent-blue); margin-bottom: 10px; }
-
-        /* --- Architecture Portfolio --- */
-        .canva-embed-container { position: relative; width: 100%; padding-top: 75%; margin-top: 20px; }
-        .canva-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-        /* --- Footer --- */
-        #footer-tagline { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 13px !important; color: rgba(209, 217, 230, 0.3) !important; text-align: center; padding: 10vh 0; }
-
         /* --- Collapsible Logic --- */
         .collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
         .collapsible::before { content: '+'; margin-right: 12px; font-size: 10px; color: var(--accent-blue); }
         .collapsible.active::before { content: '—'; }
         .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
 
-        /* --- MODAL FIX: Layered/Translucent --- */
+        /* --- Modal (Translucent) --- */
         .modal { 
             display: none; 
             position: fixed; 
@@ -161,8 +151,8 @@
             top: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: rgba(10, 25, 47, 0.7); /* Translucent */
-            backdrop-filter: blur(5px); /* Seeing the page behind */
+            background-color: rgba(10, 25, 47, 0.7); 
+            backdrop-filter: blur(5px); 
         }
         .modal-content { 
             position: relative; 
@@ -173,7 +163,6 @@
             width: 70%; 
             max-width: 320px; 
             text-align: center; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .close-button { position: absolute; top: 5px; right: 10px; color: var(--soft-blue); font-size: 20px; cursor: pointer; }
         #poem-image { max-width: 100%; height: auto; border-radius: 2px; }
@@ -275,6 +264,14 @@
                             <a href="https://github.com/ripolleslab/chiller" target="_blank" class="text-link">view biofeedback sensor design, developed by ripollés lab at nyu</a>
                         </div>
                     </div>
+                    <div class="project-block">
+                        <span class="project-role">additional focus areas</span>
+                        <ul class="simple-list">
+                            <li>privacy in on-line and off-line contexts</li>
+                            <li>disclosure to social companion <span class="caps">AI</span></li>
+                            <li>intimacy and relationality in synthetic relationships</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -305,6 +302,12 @@
                 </div>
 
                 <div class="research-card">
+                    <div class="card-header"><span class="lab-name">transforming care at the bedside</span></div>
+                    <p class="advisor-line">cedars sinai medical center</p>
+                    <p class="description">assisting nurses and clinical partners in the gastroenterology medical-surgical unit; providing bedside care for patients and families.</p>
+                </div>
+
+                <div class="research-card">
                     <div class="card-header"><span class="lab-name">medical humanities</span></div>
                     <p class="advisor-line">project assistant for <a href="https://johannashapiro.org/" target="_blank">dr. johanna shapiro</a></p>
                     <p class="description">scholarship on the socialization process of medical education, the impact of training on <span class="caps">MS3</span> empathy; and on the doctor-patient relationship.</p>
@@ -316,8 +319,28 @@
             <h3 class="collapsible">volunteer</h3>
             <div class="content">
                 <div class="research-card">
-                    <div class="card-header"><span class="lab-name">ucla medical center</span></div>
-                    <p class="description">volunteer service within the ucla health system, supporting patient care and administrative clinical operations.</p>
+                    <div class="card-header">
+                        <span class="lab-name">neuroscience k-12 outreach</span>
+                        <a href="https://interaxonatucla.com/" target="_blank" class="mini-button">interaxon at ucla</a>
+                    </div>
+                    <p class="description">outreach to Title I elementary, middle, and high schools in disadvantaged areas of Los Angeles to work with students at schools receiving poor funding in the sciences.</p>
+                </div>
+
+                <div class="research-card">
+                    <div class="card-header">
+                        <span class="lab-name">medical terminology teaching assistant</span>
+                        <a href="https://medalatucla.wixsite.com/domain" target="_blank" class="mini-button">medal at ucla</a>
+                    </div>
+                    <p class="description">teaching pilot course at Hanoi Medical University for international medical students and healthcare professionals; includes listening comprehension, history taking in English, and cultural guidance.</p>
+                </div>
+
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">journal editor</span></div>
+                    <div class="link-stack">
+                        <a href="https://feuille.humspace.ucla.edu/" target="_blank" class="text-link">feu/ille at UCLA</a>
+                        <a href="https://uclamusclgy.github.io/index.html" target="_blank" class="text-link">MUSE at UCLA</a>
+                        <a href="https://beyondthechartucla.wixsite.com/btcucla" target="_blank" class="text-link">beyond the chart at UCLA</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,6 +348,14 @@
         <div id="work">
             <h3 class="collapsible">work</h3>
             <div class="content">
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">novel translator</span></div>
+                    <p class="description">foxteller translation</p>
+                </div>
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">figure skating coach</span></div>
+                    <p class="description">aliso viejo ice palace, lake forest ice palace</p>
+                </div>
                 <div class="research-card">
                     <div class="card-header"><span class="lab-name">undergraduate student assistant</span></div>
                     <p class="description">supporting academic and administrative departmental needs within the university context.</p>
@@ -364,9 +395,7 @@
     <div id="poem-modal" class="modal">
         <div class="modal-content animated fadeInUp">
             <span class="close-button" onclick="closePoem()">&times;</span>
-            <div id="modal-body">
-                <img id="poem-image" src="" alt="Snippet">
-            </div>
+            <div id="modal-body"><img id="poem-image" src="" alt="Snippet"></div>
         </div>
     </div>
 
@@ -380,7 +409,7 @@
                 content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
             });
 
-            // Anchor scrolling
+            // Smooth Scroll
             $('a[href*="#"]').on('click', function(e) {
                 var target = $(this.hash);
                 if (target.length) {
@@ -389,14 +418,14 @@
                 }
             });
 
-            // Force GIF loop on scroll
+            // GIF Loop Handling
             const gif = document.getElementById('dbs-gif');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const src = gif.src;
                         gif.src = '';
-                        gif.src = src; // Refresh src to restart animation
+                        gif.src = src; 
                     }
                 });
             });
@@ -415,14 +444,10 @@
                 $('#poem-image').attr('src', targetPath);
                 icon.removeClass('spinning');
                 $('#poem-modal').fadeIn(300);
-                // Keep background scrollable but visual focus on modal
             };
         }
 
-        function closePoem() {
-            $('#poem-modal').fadeOut(300);
-        }
-
+        function closePoem() { $('#poem-modal').fadeOut(300); }
         window.onclick = function(e) { if (e.target.className == 'modal') closePoem(); }
     </script>
 </body>
