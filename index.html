@@ -38,14 +38,23 @@
         .caps { text-transform: uppercase !important; }
         .sub-category { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 14px; color: rgba(209, 217, 230, 0.5); margin: 25px 0 10px 0; }
 
-        /* --- Navigation --- */
+        /* --- Navigation Staggering --- */
         header { width: 92vw; padding: 2vh 4vw; position: fixed; top: 0; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
         header #logo { font-family: 'Ballet', cursive !important; font-size: 42px !important; color: var(--accent-blue) !important; text-decoration: none !important; }
-        .nav-link, .dropbtn { color: var(--soft-blue) !important; text-decoration: none !important; font-size: 14px !important; }
+        
+        .nav-link, .dropbtn { color: var(--soft-blue) !important; text-decoration: none !important; font-size: 14px !important; border: none; background: none; cursor: pointer; padding: 0; }
         .dropdown { display: inline-block; position: relative; margin-left: 2.5vw; }
-        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: transparent; min-width: 180px; padding: 10px 0; }
+        
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: transparent; min-width: 200px; padding: 10px 0; }
         .dropdown:hover .dropdown-content { display: block !important; }
-        .dropdown-content a { color: var(--soft-blue) !important; text-decoration: none !important; display: block !important; padding: 8px 0 !important; font-size: 14px !important; }
+        .dropdown-content a { color: var(--soft-blue) !important; text-decoration: none !important; display: block !important; padding: 8px 0 !important; font-size: 14px !important; transition: 0.2s; }
+        .dropdown-content a:hover { color: var(--accent-blue) !important; }
+
+        /* Staircase logic */
+        .nav-item-1 { padding-left: 20px !important; }
+        .nav-item-2 { padding-left: 40px !important; }
+        .nav-item-3 { padding-left: 60px !important; }
+        .nav-item-4 { padding-left: 80px !important; }
 
         /* --- Layout --- */
         .section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
@@ -64,13 +73,14 @@
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .mini-button { font-size: 10px; border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 2px; color: var(--accent-blue) !important; text-decoration: none !important; }
         .advisor-line { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 12px; margin-bottom: 12px; color: rgba(209, 217, 230, 0.6); }
+        .advisor-line a { color: var(--accent-blue) !important; text-decoration: none !important; }
 
         .flex-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
         .flex-text { flex: 1; }
         .flex-visual { flex: 0 0 300px; text-align: center; }
         .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
         
-        .canva-sidebar { position: relative; width: 100%; padding-top: 141%; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); }
+        .canva-sidebar { position: relative; width: 100%; padding-top: 141%; border-radius: 8px; overflow: hidden; }
         .canva-sidebar iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
         .canva-full { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; margin-top: 20px; }
@@ -120,14 +130,19 @@
             <div class="dropdown">
                 <a href="#projects" class="dropbtn nav-link">projects</a>
                 <div class="dropdown-content">
-                    <a href="#research">research</a>
-                    <a href="#clinical">clinical</a>
-                    <a href="#volunteer">volunteer</a>
-                    <a href="#work">work</a>
+                    <a href="#research" class="nav-item-1">research</a>
+                    <a href="#clinical" class="nav-item-2">clinical</a>
+                    <a href="#volunteer" class="nav-item-3">volunteer</a>
+                    <a href="#work" class="nav-item-4">work</a>
                 </div>
             </div>
             <div class="dropdown">
                 <a href="#messing" class="dropbtn nav-link">messing around</a>
+                <div class="dropdown-content">
+                    <a href="#music" class="nav-item-1">music</a>
+                    <a href="#architecture" class="nav-item-2">architecture</a>
+                    <a href="#writing" class="nav-item-3">writing</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -155,7 +170,7 @@
                         <span class="lab-name">peng lab @ ucla</span>
                         <a href="https://penglab.dgsom.ucla.edu/" target="_blank" class="mini-button">lab website</a>
                     </div>
-                    <p class="advisor-line">advised by dr. chao peng and dr. huimin guo</p>
+                    <p class="advisor-line">advised by <a href="https://bioscience.ucla.edu/people/chao-peng/" target="_blank">dr. chao peng</a> and dr. huimin guo</p>
                     <p class="description">investigating alpha-synuclein and tau related neurodegenerative diseases.</p>
                     <div class="methods-grid">
                         <div class="method-col">
@@ -164,7 +179,7 @@
                         </div>
                         <div class="method-col">
                             <span class="method-label">wet, bench</span>
-                            <p>mice models, high through-put screening, surgical implantation of intravenous pump, electrophoresis, chromatography, paraffin embedding</p>
+                            <p>mice models, surgical implantation of intravenous pump, electrophoresis, chromatography, paraffin embedding</p>
                         </div>
                     </div>
                 </div>
@@ -174,7 +189,7 @@
                         <span class="lab-name">fess lab @ ucla</span>
                         <a href="https://danielmtfessler.com/fessler-lab/" target="_blank" class="mini-button">lab website</a>
                     </div>
-                    <p class="advisor-line">advised by dr. daniel mt fessler and sophie klitgaard</p>
+                    <p class="advisor-line">advised by <a href="https://danielmtfessler.com/" target="_blank">dr. daniel mt fessler</a> and <a href="https://anthro.ucla.edu/person/sophie-elizabeth-klitgaard/" target="_blank">sophie klitgaard</a></p>
                     <div class="project-block">
                         <span class="project-role">lab manager</span>
                         <p>oversee a research group of ~50 active lab members & extensive lab alumni network. manage <span class="caps">RA</span> onboarding, study design, <span class="caps">IRB</span>, <span class="caps">OSF</span> pre-registration, and statistical plans.</p>
@@ -183,9 +198,16 @@
                         <span class="project-role">project lead</span>
                         <p>cutaneous reactions to experimental stimuli: wearable biofeedback sensor based on single-board computer and <span class="caps">MATLAB</span> architecture.</p>
                         <div class="link-stack">
-                            <a href="http://www.goosecam.de/gooselab.html" target="_blank" class="text-link">view primary analysis methods, developed by kaernbach & team</a>
-                            <a href="https://github.com/ripolleslab/chiller" target="_blank" class="text-link">view biofeedback sensor design, developed by ripollés lab at nyu</a>
+                            <a href="http://www.goosecam.de/gooselab.html" target="_blank" class="text-link">view primary analysis methods</a>
                         </div>
+                    </div>
+                    <div class="project-block">
+                        <span class="project-role">additional focus areas</span>
+                        <ul class="simple-list">
+                            <li>privacy in on-line and off-line contexts</li>
+                            <li>disclosure to social companion <span class="caps">AI</span></li>
+                            <li>intimacy and relationality in synthetic relationships</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -211,14 +233,14 @@
                 </div>
                 <div class="research-card">
                     <div class="card-header"><span class="lab-name">medical humanities</span></div>
-                    <p class="advisor-line">project assistant for dr. johanna shapiro</p>
+                    <p class="advisor-line">project assistant for <a href="https://johannashapiro.org/" target="_blank">dr. johanna shapiro</a></p>
                     <p class="description">scholarship on medical education socialization and <span class="caps">MS3</span> empathy.</p>
                 </div>
                 <h4 class="sub-category">previously...</h4>
                 <div class="research-card flex-container">
                     <div class="flex-text">
                         <div class="card-header"><span class="lab-name">neurosurgical observation</span></div>
-                        <p class="advisor-line">instructed by dr. alexander taghva and dr. brian hwang</p>
+                        <p class="advisor-line">instructed by <a href="https://alextaghvamd.com/" target="_blank">dr. alexander taghva</a> and <a href="https://www.drbhwang.com/" target="_blank">dr. brian hwang</a></p>
                         <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>) and minimally invasive neurosurgical procedures.</p>
                     </div>
                     <div class="flex-visual">
@@ -287,7 +309,6 @@
 
     <div id="messing" class="section">
         <h1 class="ballet-header">messing around</h1>
-        
         <div id="music">
             <h3 class="collapsible">music</h3>
             <div class="content">
@@ -295,7 +316,6 @@
                 <audio controls><source src="media/cancer.m4a" type="audio/mp4"></audio>
             </div>
         </div>
-
         <div id="architecture">
             <h3 class="collapsible">architecture</h3>
             <div class="content">
@@ -304,7 +324,6 @@
                 </div>
             </div>
         </div>
-
         <div id="writing">
             <h3 class="collapsible">writing</h3>
             <div class="content">
@@ -326,28 +345,17 @@
     <script>
         $(document).ready(function() {
             setTimeout(function() { $("#loading").fadeOut(600); }, 150);
-
             $(".collapsible").on("click", function() {
                 this.classList.toggle("active");
                 var content = this.nextElementSibling;
                 content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
             });
-
-            $('a[href*="#"]').on('click', function(e) {
-                var target = $(this.hash);
-                if (target.length) {
-                    e.preventDefault();
-                    $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
-                }
-            });
         });
-
         function luckySnippet() {
             const icon = $('#lucky-icon');
             icon.addClass('spinning');
             const randomNum = Math.floor(Math.random() * 20) + 1;
             const targetPath = "docs/snippet (" + randomNum + ").png";
-            
             const tempImg = new Image();
             tempImg.src = targetPath;
             tempImg.onload = function() {
@@ -356,7 +364,6 @@
                 $('#poem-modal').fadeIn(300);
             };
         }
-
         function closePoem() { $('#poem-modal').fadeOut(300); }
         window.onclick = function(e) { if (e.target.className == 'modal') closePoem(); }
     </script>
