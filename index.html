@@ -76,8 +76,8 @@
         .flex-container { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
         .flex-text { flex: 1; }
         .flex-visual { flex: 0 0 300px; text-align: center; }
-        .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); margin-bottom: 10px; }
-        .gif-caption { font-size: 11px !important; font-style: italic; color: rgba(209, 217, 230, 0.5); }
+        .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); margin-bottom: 10px; display: block; }
+        .gif-caption { font-size: 11px !important; font-style: italic; color: rgba(209, 217, 230, 0.5); display: block; }
         
         .canva-sidebar { position: relative; width: 100%; padding-top: 141%; border-radius: 8px; overflow: hidden; }
         .canva-sidebar iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
@@ -90,6 +90,9 @@
         .simple-list li { position: relative; padding-left: 15px; margin-bottom: 6px; }
         .simple-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-blue); }
         
+        .link-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+        .text-link { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 13px; color: var(--accent-blue) !important; text-decoration: none !important; }
+
         .methods-grid { display: flex; gap: 30px; margin-top: 15px; }
         .method-col { flex: 1; }
         .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
@@ -190,7 +193,8 @@
                         <span class="project-role">project lead</span>
                         <p>cutaneous reactions to experimental stimuli: wearable biofeedback sensor based on single-board computer and <span class="caps">MATLAB</span> architecture.</p>
                         <div class="link-stack">
-                            <a href="http://www.goosecam.de/gooselab.html" target="_blank" class="text-link">view primary analysis methods</a>
+                            <a href="http://www.goosecam.de/gooselab.html" target="_blank" class="text-link">view primary analysis methods, developed by kaernbach & team</a>
+                            <a href="https://github.com/ripolleslab/chiller" target="_blank" class="text-link">view biofeedback sensor design, developed by ripollés lab at nyu</a>
                         </div>
                     </div>
                     <div class="project-block">
@@ -236,8 +240,8 @@
                         <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>) and minimally invasive neurosurgical procedures.</p>
                     </div>
                     <div class="flex-visual">
-                        <img src="img/dbs.gif" alt="DBS" class="project-gif">
-                        <p class="gif-caption">deep brain stimulation (DBS) target visual</p>
+                        <img src="img/dbs.gif" alt="Deep Brain Stimulation" class="project-gif">
+                        <span class="gif-caption">deep brain stimulation (DBS) target visual</span>
                     </div>
                 </div>
             </div>
