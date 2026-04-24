@@ -78,7 +78,7 @@
         }
         .dropdown-content a:hover { color: var(--accent-blue) !important; }
 
-        /* --- STAIRCASE FIX --- */
+        /* Staircase Indentation */
         #navigation .dropdown-content a.nav-item-1 { padding-left: 20px !important; }
         #navigation .dropdown-content a.nav-item-2 { padding-left: 40px !important; }
         #navigation .dropdown-content a.nav-item-3 { padding-left: 60px !important; }
@@ -118,8 +118,9 @@
 
         .clinical-flex { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
         .card-text { flex: 1; }
-        .card-visual { flex: 0 0 250px; }
+        .card-visual { flex: 0 0 300px; text-align: center; } /* Enlarged visual container */
         .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
+        .gif-caption { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 10px; color: rgba(209, 217, 230, 0.4); margin-top: 8px; display: block; }
 
         .project-block { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(209, 217, 230, 0.08); }
         .project-role { font-style: italic; color: var(--soft-blue); display: block; margin-bottom: 8px; }
@@ -151,8 +152,18 @@
         .collapsible.active::before { content: '—'; }
         .content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding-left: 22px; }
 
-        /* --- MODAL SIZE FIX --- */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.95); backdrop-filter: blur(8px); }
+        /* --- MODAL FIX: Layered/Translucent --- */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(10, 25, 47, 0.7); /* Translucent */
+            backdrop-filter: blur(5px); /* Seeing the page behind */
+        }
         .modal-content { 
             position: relative; 
             background-color: var(--deep-navy); 
@@ -160,8 +171,9 @@
             padding: 20px; 
             border: 1px solid rgba(165, 180, 252, 0.2); 
             width: 70%; 
-            max-width: 320px; /* Force small size */
+            max-width: 320px; 
             text-align: center; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .close-button { position: absolute; top: 5px; right: 10px; color: var(--soft-blue); font-size: 20px; cursor: pointer; }
         #poem-image { max-width: 100%; height: auto; border-radius: 2px; }
@@ -263,14 +275,6 @@
                             <a href="https://github.com/ripolleslab/chiller" target="_blank" class="text-link">view biofeedback sensor design, developed by ripollés lab at nyu</a>
                         </div>
                     </div>
-                    <div class="project-block">
-                        <span class="project-role">additional focus areas</span>
-                        <ul class="simple-list">
-                            <li>privacy in on-line and off-line contexts</li>
-                            <li>disclosure to social companion <span class="caps">AI</span></li>
-                            <li>intimacy and relationality in synthetic relationships</li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -295,8 +299,35 @@
                         </div>
                     </div>
                     <div class="card-visual">
-                        <img src="img/dbs.gif" alt="DBS" class="project-gif">
+                        <img src="img/dbs.gif" alt="DBS" class="project-gif" id="dbs-gif">
+                        <span class="gif-caption"><span class="caps">IEEE</span> Transactions on Biomedical Engineering</span>
                     </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">medical humanities</span></div>
+                    <p class="advisor-line">project assistant for <a href="https://johannashapiro.org/" target="_blank">dr. johanna shapiro</a></p>
+                    <p class="description">scholarship on the socialization process of medical education, the impact of training on <span class="caps">MS3</span> empathy; and on the doctor-patient relationship.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="volunteer">
+            <h3 class="collapsible">volunteer</h3>
+            <div class="content">
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">ucla medical center</span></div>
+                    <p class="description">volunteer service within the ucla health system, supporting patient care and administrative clinical operations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="work">
+            <h3 class="collapsible">work</h3>
+            <div class="content">
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">undergraduate student assistant</span></div>
+                    <p class="description">supporting academic and administrative departmental needs within the university context.</p>
                 </div>
             </div>
         </div>
@@ -333,7 +364,9 @@
     <div id="poem-modal" class="modal">
         <div class="modal-content animated fadeInUp">
             <span class="close-button" onclick="closePoem()">&times;</span>
-            <img id="poem-image" src="" alt="Snippet">
+            <div id="modal-body">
+                <img id="poem-image" src="" alt="Snippet">
+            </div>
         </div>
     </div>
 
@@ -347,6 +380,7 @@
                 content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
             });
 
+            // Anchor scrolling
             $('a[href*="#"]').on('click', function(e) {
                 var target = $(this.hash);
                 if (target.length) {
@@ -354,6 +388,19 @@
                     $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
                 }
             });
+
+            // Force GIF loop on scroll
+            const gif = document.getElementById('dbs-gif');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const src = gif.src;
+                        gif.src = '';
+                        gif.src = src; // Refresh src to restart animation
+                    }
+                });
+            });
+            if(gif) observer.observe(gif);
         });
 
         function luckySnippet() {
@@ -367,14 +414,13 @@
             tempImg.onload = function() {
                 $('#poem-image').attr('src', targetPath);
                 icon.removeClass('spinning');
-                $('#poem-modal').show();
-                document.body.style.overflow = "hidden";
+                $('#poem-modal').fadeIn(300);
+                // Keep background scrollable but visual focus on modal
             };
         }
 
         function closePoem() {
-            $('#poem-modal').hide();
-            document.body.style.overflow = "auto";
+            $('#poem-modal').fadeOut(300);
         }
 
         window.onclick = function(e) { if (e.target.className == 'modal') closePoem(); }
