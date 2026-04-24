@@ -422,15 +422,14 @@
             const icon = $('#formal-icon');
             icon.addClass('spinning'); 
             
-            const randomNum = Math.floor(Math.random() * 5) + 1;
+            const randomNum = Math.floor(Math.random() * 4) + 1;
             const targetPath = "docs/doc (" + randomNum + ").pdf";
             
             window.open(targetPath, '_blank');
             
             setTimeout(() => { icon.removeClass('spinning'); }, 800);
         }
-
-        function closePoem() { $('#poem-modal').fadeOut(300); }
+    function closePoem() { $('#poem-modal').fadeOut(300); }
         window.onclick = function(e) { if (e.target.className == 'modal') closePoem(); }
     </script>
 </body>
