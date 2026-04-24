@@ -36,7 +36,7 @@
         }
 
         .caps { text-transform: uppercase !important; }
-        .sub-category { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 14px; color: rgba(209, 217, 230, 0.5); margin: 20px 0 10px 0; }
+        .sub-category { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 14px; color: rgba(209, 217, 230, 0.5); margin: 25px 0 10px 0; }
 
         /* --- Navigation --- */
         header { width: 92vw; padding: 2vh 4vw; position: fixed; top: 0; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
@@ -69,8 +69,24 @@
         .flex-text { flex: 1; }
         .flex-visual { flex: 0 0 300px; text-align: center; }
         .project-gif { width: 100%; border-radius: 4px; border: 1px solid rgba(165, 180, 252, 0.2); }
-        .canva-sidebar { position: relative; width: 100%; padding-top: 141%; border-radius: 8px; overflow: hidden; }
+        
+        .canva-sidebar { position: relative; width: 100%; padding-top: 141%; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); }
         .canva-sidebar iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        .canva-full { position: relative; width: 100%; padding-top: 56.25%; border-radius: 8px; overflow: hidden; margin-top: 20px; }
+        .canva-full iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+        .project-block { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(209, 217, 230, 0.08); }
+        .project-role { font-style: italic; color: var(--soft-blue); display: block; margin-bottom: 8px; }
+        .simple-list { list-style: none; padding-left: 0; margin-top: 10px; }
+        .simple-list li { position: relative; padding-left: 15px; margin-bottom: 6px; }
+        .simple-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-blue); }
+        .link-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+        .text-link { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 13px; color: var(--accent-blue) !important; text-decoration: none !important; }
+
+        .methods-grid { display: flex; gap: 30px; margin-top: 15px; }
+        .method-col { flex: 1; }
+        .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
         /* --- Components --- */
         .collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
@@ -80,6 +96,14 @@
 
         .audio-label { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 14px !important; color: var(--accent-blue); margin-bottom: 10px; }
         #footer-tagline { font-family: 'Old Standard TT', serif !important; font-style: italic !important; font-size: 13px !important; color: rgba(209, 217, 230, 0.3) !important; text-align: center; padding: 10vh 0; }
+
+        /* --- Modal --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(10, 25, 47, 0.7); backdrop-filter: blur(5px); }
+        .modal-content { position: relative; background-color: var(--deep-navy); margin: 15vh auto; padding: 20px; border: 1px solid rgba(165, 180, 252, 0.2); width: 70%; max-width: 320px; text-align: center; }
+        .close-button { position: absolute; top: 5px; right: 10px; color: var(--soft-blue); font-size: 20px; cursor: pointer; }
+        #poem-image { max-width: 100%; height: auto; border-radius: 2px; }
+        #lucky-button { background: transparent; border: 1px solid var(--accent-blue); color: var(--accent-blue); padding: 10px 20px; font-size: 13px; cursor: pointer; border-radius: 4px; transition: 0.3s; margin-top: 15px; }
+        .spinning { animation: rotate 1s infinite linear; }
 
         #loading { width: 100vw; height: 100vh; position: fixed; background: var(--deep-navy); z-index: 9999; display: flex; justify-content: center; align-items: center; }
         #spinner { width: 40px; height: 40px; border: 3px solid var(--accent-blue); border-bottom: 3px solid transparent; border-radius: 50%; animation: rotate 0.8s infinite linear; }
@@ -113,7 +137,7 @@
             <img src="img/GraceWang_Headshot.JPG" alt="Grace Wang" class="headshot">
             <div id="hero-text-container">
                 <h1 class="hero-title">neuroscience, comparative lit & bio @ ucla</h1>
-                <p>research interests span the health humanities, cognitive neuroscience, and biological anthropology. after undergrad, plan to pursue an MD-PhD program to ultimately become a physician scientist.</p>
+                <p>research interests span the health humanities, cognitive neuroscience, and biological anthropology. broadly interested in the intersections between neurobiology and the social sciences. after undergrad, plan to pursue an MD-PhD program to ultimately become a physician scientist.</p>
                 <a href="mailto:gracexwang@ucla.edu" class="contact-line">gracexwang [at] ucla [dot] edu</a>
             </div>
         </div>
@@ -127,9 +151,44 @@
             <div class="content">
                 <h4 class="sub-category">currently...</h4>
                 <div class="research-card">
-                    <div class="card-header"><span class="lab-name">peng lab @ ucla</span></div>
+                    <div class="card-header">
+                        <span class="lab-name">peng lab @ ucla</span>
+                        <a href="https://penglab.dgsom.ucla.edu/" target="_blank" class="mini-button">lab website</a>
+                    </div>
+                    <p class="advisor-line">advised by dr. chao peng and dr. huimin guo</p>
                     <p class="description">investigating alpha-synuclein and tau related neurodegenerative diseases.</p>
+                    <div class="methods-grid">
+                        <div class="method-col">
+                            <span class="method-label">dry, computational</span>
+                            <p>bioinformatics analysis (python) & genomic sequencing</p>
+                        </div>
+                        <div class="method-col">
+                            <span class="method-label">wet, bench</span>
+                            <p>mice models, high through-put screening, surgical implantation of intravenous pump, electrophoresis, chromatography, paraffin embedding</p>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="research-card">
+                    <div class="card-header">
+                        <span class="lab-name">fess lab @ ucla</span>
+                        <a href="https://danielmtfessler.com/fessler-lab/" target="_blank" class="mini-button">lab website</a>
+                    </div>
+                    <p class="advisor-line">advised by dr. daniel mt fessler and sophie klitgaard</p>
+                    <div class="project-block">
+                        <span class="project-role">lab manager</span>
+                        <p>oversee a research group of ~50 active lab members & extensive lab alumni network. manage <span class="caps">RA</span> onboarding, study design, <span class="caps">IRB</span>, <span class="caps">OSF</span> pre-registration, and statistical plans.</p>
+                    </div>
+                    <div class="project-block">
+                        <span class="project-role">project lead</span>
+                        <p>cutaneous reactions to experimental stimuli: wearable biofeedback sensor based on single-board computer and <span class="caps">MATLAB</span> architecture.</p>
+                        <div class="link-stack">
+                            <a href="http://www.goosecam.de/gooselab.html" target="_blank" class="text-link">view primary analysis methods, developed by kaernbach & team</a>
+                            <a href="https://github.com/ripolleslab/chiller" target="_blank" class="text-link">view biofeedback sensor design, developed by ripollés lab at nyu</a>
+                        </div>
+                    </div>
+                </div>
+
                 <h4 class="sub-category">previously...</h4>
                 <div class="research-card">
                     <div class="card-header">
@@ -137,7 +196,7 @@
                         <a href="https://www.cui.edu/academicprograms/health-human-sciences/lifestyle-parkinsons-longitudinal-study" target="_blank" class="mini-button">study website</a>
                     </div>
                     <p class="advisor-line">lifestyle parkinson's longitudinal study</p>
-                    <p class="description">investigating lifestyle factors and Parkinson's disease progression.</p>
+                    <p class="description">investigating the relationship between lifestyle factors (physical, biometric, cognitive) and Parkinson's disease progression.</p>
                 </div>
             </div>
         </div>
@@ -145,12 +204,22 @@
         <div id="clinical">
             <h3 class="collapsible">clinical</h3>
             <div class="content">
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">transforming care at the bedside</span></div>
+                    <p class="advisor-line">cedars sinai medical center</p>
+                    <p class="description">assisting nurses and clinical partners in the gastroenterology medical-surgical unit.</p>
+                </div>
+                <div class="research-card">
+                    <div class="card-header"><span class="lab-name">medical humanities</span></div>
+                    <p class="advisor-line">project assistant for dr. johanna shapiro</p>
+                    <p class="description">scholarship on medical education socialization and <span class="caps">MS3</span> empathy.</p>
+                </div>
                 <h4 class="sub-category">previously...</h4>
                 <div class="research-card flex-container">
                     <div class="flex-text">
                         <div class="card-header"><span class="lab-name">neurosurgical observation</span></div>
                         <p class="advisor-line">instructed by dr. alexander taghva and dr. brian hwang</p>
-                        <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>) and neurosurgical workflow.</p>
+                        <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>) and minimally invasive neurosurgical procedures.</p>
                     </div>
                     <div class="flex-visual">
                         <img src="img/dbs.gif" alt="DBS" class="project-gif">
@@ -164,12 +233,26 @@
             <div class="content">
                 <div class="research-card">
                     <div class="card-header"><span class="lab-name">journal editor</span></div>
-                    <p class="description">feu/ille at UCLA, MUSE, beyond the chart.</p>
+                    <div class="link-stack">
+                        <a href="https://feuille.humspace.ucla.edu/" target="_blank" class="text-link">feu/ille at UCLA</a>
+                        <a href="https://uclamusclgy.github.io/index.html" target="_blank" class="text-link">MUSE at UCLA</a>
+                        <a href="https://beyondthechartucla.wixsite.com/btcucla" target="_blank" class="text-link">beyond the chart at UCLA</a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="card-header">
+                        <span class="lab-name">medical terminology teaching assistant</span>
+                        <a href="https://medalatucla.wixsite.com/domain" target="_blank" class="mini-button">medal at ucla</a>
+                    </div>
+                    <p class="description">teaching pilot course at Hanoi Medical University for international medical students.</p>
                 </div>
                 <h4 class="sub-category">previously...</h4>
                 <div class="research-card">
-                    <div class="card-header"><span class="lab-name">neuroscience k-12 outreach</span></div>
-                    <p class="description">outreach to Title I schools via interaxon at ucla.</p>
+                    <div class="card-header">
+                        <span class="lab-name">neuroscience k-12 outreach</span>
+                        <a href="https://interaxonatucla.com/" target="_blank" class="mini-button">interaxon at ucla</a>
+                    </div>
+                    <p class="description">outreach to Title I schools in disadvantaged areas of Los Angeles.</p>
                 </div>
             </div>
         </div>
@@ -204,6 +287,7 @@
 
     <div id="messing" class="section">
         <h1 class="ballet-header">messing around</h1>
+        
         <div id="music">
             <h3 class="collapsible">music</h3>
             <div class="content">
@@ -211,19 +295,70 @@
                 <audio controls><source src="media/cancer.m4a" type="audio/mp4"></audio>
             </div>
         </div>
+
+        <div id="architecture">
+            <h3 class="collapsible">architecture</h3>
+            <div class="content">
+                <div class="canva-full">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAGpVTphIwo/JCToEJleiGqqc1KziUkcIg/view?embed" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div id="writing">
+            <h3 class="collapsible">writing</h3>
+            <div class="content">
+                <p class="writing-hint">click for a short thought snippet.</p>
+                <button id="lucky-button" onclick="luckySnippet()"><i class="fas fa-sync-alt" id="lucky-icon"></i> a piece of my mind</button>
+            </div>
+        </div>
     </div>
 
     <footer><p id="footer-tagline">however it unfolds</p></footer>
 
+    <div id="poem-modal" class="modal">
+        <div class="modal-content animated fadeInUp">
+            <span class="close-button" onclick="closePoem()">&times;</span>
+            <div id="modal-body"><img id="poem-image" src="" alt="Snippet"></div>
+        </div>
+    </div>
+
     <script>
         $(document).ready(function() {
             setTimeout(function() { $("#loading").fadeOut(600); }, 150);
+
             $(".collapsible").on("click", function() {
                 this.classList.toggle("active");
                 var content = this.nextElementSibling;
                 content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
             });
+
+            $('a[href*="#"]').on('click', function(e) {
+                var target = $(this.hash);
+                if (target.length) {
+                    e.preventDefault();
+                    $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
+                }
+            });
         });
+
+        function luckySnippet() {
+            const icon = $('#lucky-icon');
+            icon.addClass('spinning');
+            const randomNum = Math.floor(Math.random() * 20) + 1;
+            const targetPath = "docs/snippet (" + randomNum + ").png";
+            
+            const tempImg = new Image();
+            tempImg.src = targetPath;
+            tempImg.onload = function() {
+                $('#poem-image').attr('src', targetPath);
+                icon.removeClass('spinning');
+                $('#poem-modal').fadeIn(300);
+            };
+        }
+
+        function closePoem() { $('#poem-modal').fadeOut(300); }
+        window.onclick = function(e) { if (e.target.className == 'modal') closePoem(); }
     </script>
 </body>
 </html>
