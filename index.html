@@ -38,7 +38,7 @@
         .caps { text-transform: uppercase !important; }
         .sub-category { font-family: 'Old Standard TT', serif; font-style: italic; font-size: 14px; color: rgba(209, 217, 230, 0.5); margin: 25px 0 10px 0; }
 
-        /* --- Navigation & STAIRCASE EFFECT --- */
+        /* --- Navigation & THE STAIRCASE --- */
         header { width: 92vw; padding: 2vh 4vw; position: fixed; top: 0; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
         header #logo { font-family: 'Ballet', cursive !important; font-size: 42px !important; color: var(--accent-blue) !important; text-decoration: none !important; }
         
@@ -55,10 +55,10 @@
             padding: 15px 0; 
         }
 
-        /* Essential for staircase to render correctly */
         .dropdown:hover .dropdown-content { 
             display: flex !important; 
             flex-direction: column; 
+            align-items: flex-start; /* Keeps margins effective */
         }
 
         .dropdown-content a { 
@@ -70,11 +70,11 @@
             transition: 0.2s; 
         }
         
-        /* The Staircase Indentations */
-        .nav-item-1 { padding-left: 20px !important; }
-        .nav-item-2 { padding-left: 40px !important; }
-        .nav-item-3 { padding-left: 60px !important; }
-        .nav-item-4 { padding-left: 80px !important; }
+        /* Staircase Indentations using Margin */
+        .nav-item-1 { margin-left: 20px !important; }
+        .nav-item-2 { margin-left: 40px !important; }
+        .nav-item-3 { margin-left: 60px !important; }
+        .nav-item-4 { margin-left: 80px !important; }
 
         /* --- Layout --- */
         .section { padding: 15vh 4vw; max-width: 1100px; margin: 0 auto; }
