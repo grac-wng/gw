@@ -353,6 +353,14 @@
 
     <div id="messing" class="section">
         <h1 class="ballet-header">messing around</h1>
+        <div id="architecture">
+            <h3 class="collapsible">architecture</h3>
+            <div class="content">
+                <div class="canva-full">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAGpVTphIwo/JCToEJleiGqqc1KziUkcIg/view?embed" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+            </div>
+        </div>
         <div id="music">
             <h3 class="collapsible">music</h3>
             <div class="content">
@@ -366,18 +374,10 @@
                 <audio controls><source src="media/comeoutandplay.m4a" type="audio/mp4"></audio>
             </div>
         </div>
-        <div id="architecture">
-            <h3 class="collapsible">architecture</h3>
-            <div class="content">
-                <div class="canva-full">
-                    <iframe loading="lazy" src="https://www.canva.com/design/DAGpVTphIwo/JCToEJleiGqqc1KziUkcIg/view?embed" allowfullscreen="allowfullscreen"></iframe>
-                </div>
-            </div>
-        </div>
         <div id="writing">
             <h3 class="collapsible">writing</h3>
             <div class="content">
-                <p class="writing-hint">thinking & writing.</p>
+                <p class="writing-hint">thinking & writing</p>
                 <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                     <button id="lucky-button" onclick="luckySnippet()">
                         <i class="fas fa-sync-alt" id="lucky-icon"></i> a piece of my mind
@@ -412,7 +412,7 @@
         function luckySnippet() {
             const icon = $('#lucky-icon');
             icon.addClass('spinning');
-            const randomNum = Math.floor(Math.random() * 20) + 1;
+            const randomNum = Math.floor(Math.random() * 24) + 1;
             const targetPath = "docs/snippet (" + randomNum + ").png";
             const tempImg = new Image();
             tempImg.src = targetPath;
@@ -427,7 +427,7 @@
             const icon = $('#formal-icon');
             icon.addClass('spinning'); 
             
-            const randomNum = Math.floor(Math.random() * 4) + 1;
+            const randomNum = Math.floor(Math.random() * 7) + 1;
             const targetPath = "docs/doc (" + randomNum + ").pdf";
             
             window.open(targetPath, '_blank');
