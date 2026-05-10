@@ -29,7 +29,7 @@
             overflow-x: hidden;
         }
 
-        /* --- Typography --- */
+        /* --- typography --- */
         p, span, li, h1, h2, h3, h4, a, .dropbtn { text-transform: lowercase; }
 
         .description, .project-block p, .method-col p, .research-card p, 
@@ -122,7 +122,7 @@
         .method-col { flex: 1; }
         .method-label { display: block; font-size: 10px; text-transform: uppercase !important; letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 5px; }
 
-        /* --- Components --- */
+        /* --- components --- */
         .collapsible { cursor: pointer; font-size: 14px; margin-top: 2vh; display: flex; align-items: center; }
         .collapsible::before { content: '+'; margin-right: 12px; font-size: 10px; color: var(--accent-blue); }
         .collapsible.active::before { content: '—'; }
@@ -286,7 +286,7 @@
                         <p class="description">observation focused on Deep Brain Stimulation (<span class="caps">DBS</span>), endoscopic spine surgery, and other minimally invasive neurosurgical procedures.</p>
                     </div>
                     <div class="flex-visual">
-                        <img src="img/dbs.gif" alt="Deep Brain Stimulation" class="project-gif">
+                        <img src="img/dbs.gif" alt="deep brain stimulation" class="project-gif">
                         <span class="gif-caption">IEEE transactions on biomedical engineering</span>
                     </div>
                 </div>
@@ -329,7 +329,7 @@
                     <div class="flex-text">
                         <div class="card-header"><span class="lab-name">instructor</span></div>
                         <p class="advisor-line">west coast education</p>
-                        <p class="description">educational instruction, college application guidance, AP/CC classes, essay revision, ESL.</p>
+                        <p class="description">educational instruction, college application guidance, AP/CC classes, essay revision, ESL</p>
                     </div>
                     <div class="flex-visual">
                         <div class="canva-sidebar">
@@ -437,7 +437,7 @@
         function luckySnippet() {
             const icon = $('#lucky-icon');
             icon.addClass('spinning');
-            const randomNum = Math.floor(Math.random() * 24) + 1;
+            const randomNum = Math.floor(Math.random() * 25) + 1;
             const targetPath = "docs/snippet (" + randomNum + ").png";
             const tempImg = new Image();
             tempImg.src = targetPath;
